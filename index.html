@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffe Land</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+        * {
+          margin: 0;
+          padding; 0;
+        }
+        body {
+          background-color: #8857a1;
+          background-image: url("/static/background.jpg");
+          background-repeat: no-repeat;
+          background-position: center;
+          align-items: center;
+          height: 100vh;
+          background-size: cover;
+          display: flex;
+          flex-direction: column;
+
+        .header {
+          color: #df49fc;
+          text-align: center;
+          font-size: 28px;
+          font-weight: bold;
+          font-family: Shadows into light;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+          height: 8%;
+          line-height: 200%;
+
+        }
+
+        }
+        .container {
+          color: white;
+          height: 25vh;
+          text-align: center;
+          background: linear-gradient(to right, #660066, #800080);
+          width: 86%;
+          border-radius: 38px;
+          margin-top: 5px;
+          margin-left: 7%;
+          margin-right: 7%;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          font-family: Archivo Black;
+
+
+        }
+        .info {
+          display: flex;
+          justify-content: space-between;
+          gap: 16%;
+          height: 60%;
+          padding: 0px;
+
+        }
+        .balance {
+          display: flex;
+          justify-content: space-between;
+          gap: 16%;
+          height: 40%;
+          padding: 0px;
+        }
+        .table_balance {
+          background: #de69f5;
+          border-bottom: 0px solid white;
+          border-left: 0px solid white;
+          border-right: 0px solid white;
+          border-top: 3px solid black;
+          border-radius: 0px 0px 30px 30px;
+          opacity: 1;
+          word-spacing: 4px;
+          flex: 1;
+          padding: 3.5%;
+          width: 80%;
+          font-size: 14px;
+        }
+        .table_hash {
+          background: #de69f5;
+          border-top: 0px solid white;
+          border-left: 0px solid white;
+          border-right: 0px solid white;
+          border-bottom: 3px solid black;
+          border-radius: 34px 34px 0px 0px;
+          opacity: 1;
+          word-spacing: 4px;
+          flex: 1;
+          padding: 6%;
+          width: 80%;
+          font-size: 16px;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1> Coffe Land</h1><br>
+    </div>
+    <div class="container">
+        <div class="info">
+            <div class="table_hash">
+                <p>TEA Hashrate:</p>
+                <p> 0.0000 TEA/min</p>
+            </div>
+            <div class="table_hash">
+                <p>TCL Hashrate:</p>
+                <p> 0.0000 TCL/min</p>
+            </div>
+        </div>
+        <div class="balance">
+            <div class="table_balance">
+                <p>TEA Balance: 0.0000 TEA</p>
+            </div>
+            <div class="table_balance">
+                <p>TCL Balance: 0.0000 TCL</p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
