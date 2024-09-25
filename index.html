@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
     <title>Coffe Land</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
@@ -12,7 +15,7 @@
         }
         body {
           background-color: #8857a1;
-          background-image: url("background.jpg");
+          background-image: url("static/background.jpg");
           background-repeat: no-repeat;
           background-position: center;
           align-items: center;
@@ -24,14 +27,14 @@
         .header {
           color: #fc2695;
           text-align: center;
-          font-size: 28px;
+          font-size: 2rem;
           font-weight: bold;
           font-family: Shadows into light;
           text-transform: uppercase;
-          letter-spacing: 5px;
-          height: 8%;
+          letter-spacing: 0.5rem;
+          height: 8vh;
           line-height: 200%;
-          text-shadow: 2px 2px 10px rgba(62, 1, 74, 1);
+          text-shadow: 0.2vw 1vh 10px rgba(62, 1, 74, 1);
 
         }
 
@@ -42,11 +45,11 @@
           text-align: center;
           background: linear-gradient(260deg, #d938f5, #ae2aeb);
           width: 86%;
-          border-radius: 38px;
-          margin-top: 5px;
+          border-radius: 2.8em;
+          margin-top: 0.5em;
           margin-left: 7%;
           margin-right: 7%;
-          padding: 20px;
+          padding: 1.2em;
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -60,7 +63,6 @@
           justify-content: space-between;
           gap: 12%;
           height: 60%;
-          padding: 0px;
 
         }
         .balance {
@@ -68,22 +70,22 @@
           justify-content: space-between;
           gap: 12%;
           height: 40%;
-          padding: 0px;
         }
         .table_hash {
           background: rgba(255, 255, 255, 0.2);
           border-top: 0px solid white;
           border-left: 0px solid white;
           border-right: 0px solid white;
-          border-bottom: 2px solid #49005c;
-          border-radius: 26px 26px 0px 0px;
+          border-bottom: 0.1em solid #49005c;
+          border-radius: 2em 2em 0px 0px;
           opacity: 1;
-          word-spacing: 4px;
+          word-spacing: 0.1em;
+          letter-spacing: 0.06em;
           flex: 1;
-          padding: 5%;
-          font-size: 13px;
-          box-shadow: 0px 6px 26px rgba(0, 0, 0, 0.6);
-          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+          padding: 1.8em;
+          font-size: 1rem;
+          box-shadow: 0vw 1vh 26px rgba(0, 0, 0, 0.6);
+          text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
 
         }
         .table_balance {
@@ -91,59 +93,59 @@
           border-bottom: 0px solid white;
           border-left: 0px solid white;
           border-right: 0px solid white;
-          border-top: 2px solid #49005c;
-          border-radius: 0px 0px 24px 24px;
+          border-top: 0.1em solid #49005c;
+          border-radius: 0px 0px 1.6em 1.6em;
           opacity: 1;
-          word-spacing: 4px;
+          word-spacing: 0.1em;
           flex: 1;
           float: center;
-          padding: 2.5%;
-          font-size: 14px;
-          box-shadow: 0px 13px 20px rgba(0, 0, 0, 0.5);
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+          padding: 1.12em;
+          font-size: 1rem;
+          box-shadow: 0px 1.5vh 20px rgba(0, 0, 0, 0.5);
+          text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
         }
         .mine-button-container {
           display: flex;
           justify-content: space-between;
-          width: 74%;
-          margin: 10px;
-          height: 60px;
+          width: 74vw;
+          margin: 0.5em;
+          height: 8vh;
 
         }
         .button-container {
           display: flex;
           justify-content: space-between;
-          width: 95%;
+          width: 95vw;
           position: absolute;
-          height: 60px;
-          bottom: 10px;
-          gap: 10px;
+          height: 8vh;
+          bottom: 1vh;
+          gap: 1em;
         }
         .button {
           color: white;
           background: #333333;
-          border-radius: 24px;
+          border-radius: 2em;
           border: none;
           cursor: pointer;
-          height: 90%;
-          width: 140px;
-          font-size: 16px;
+          height: 7.5vh;
+          width: 28vw;
+          font-size: 1.2rem;
           font-family: Archivo Black;
-          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+          box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
+          text-shadow: 0.4vw 0.5vh 4px rgba(0, 0, 0, 0.6);
         }
         .button-bot {
           color: white;
           background: #333333;
-          border-radius: 24px;
+          border-radius: 2em;
           border: none;
           cursor: pointer;
-          height: 90%;
-          width: 140px;
-          font-size: 16px;
+          height: 7vh;
+          width: 24vw;
+          font-size: 1.1rem;
           font-family: Archivo Black;
-          box-shadow: 1px 8px 20px rgba(0, 0, 0, 0.7);
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+          box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
+          text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
@@ -164,10 +166,10 @@
         </div>
         <div class="balance">
             <div class="table_balance">
-                <p>TEA Balance: 0.0000 TEA</p>
+                <p>TEA Balance: 0.0000</p>
             </div>
             <div class="table_balance">
-                <p>TCL Balance: 0.0000 TCL</p>
+                <p>TCL Balance: 0.0000</p>
             </div>
         </div>
     </div>
