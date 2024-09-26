@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>wallet</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #333333;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+      }
+      .header {
+        background: #262626;
+        width: 100vw;
+        color: white;
+        border-radius: 0em 0em 0.6em 0.6em;
+        border-bottom: 0.1em solid #f200ff;
+        height: 13vh;
+        text-align: center;
+        font-family: Archivo Black;
+        font-size: 1.8rem;
+        text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+        box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
+      }
+      .back-button {
+        background: none;
+        position: absolute;
+        float: left;
+        left: 0;
+        margin: 1em;
+        border-radius: 4em;
+        width: 10vw;
+        height: 5vh;
+      }
+      .button-back {
+        color: white;
+        background: #1f1f1f;
+        position: absolute;
+        float: left;
+        left: 0;
+        margin: 0.8em;
+        width: 12vw;
+        height: 5vh;
+        cursor: pointer;
+        border: 0em solid #ffffff;
+        border-radius: 2em;
+        font-family: Archivo Black;
+        font-size: 0.9rem;
+        text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
+        box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
+      }
+      .container {
+        background: #262626;
+        width: 85vw;
+        height: 52vh;
+        border: 0.08em solid white;
+        border-radius: 0.8em;
+        color: white;
+        text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.4);
+        font-family: Archivo Black;
+        margin: 3em;
+        padding: 1em;
+      }
+      .container-header {
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 0em;
+      }
+      .token-line {
+        display: flex;
+        justify-content: left;
+        width: 80vw;
+        height: 7vh;
+        margin: 1em;
+      }
+      .usdt img {
+        position: absolute;
+        float: left;
+        max-height: 7.8vh;
+        max-width: 7.8vw;
+      }
+      .ton img {
+        position: absolute;
+        float: left;
+        max-height: 7.8vh;
+        max-width: 7.8vw;
+      }
+      .line {
+        padding: 0.4em;
+        font-size: 1.4rem;
+        background: #1f1f1f;
+        border-radius: 2em;
+        width: 35vw;
+        background: #1f1f1f;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 3em;
+      }
+      .button-container {
+        position: absolute;
+        width: 100vw;
+        height: 12vh;
+        background: #262626 ;
+        border-radius: 0.8em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8vw;
+        border-radius: 0.8em 0.8em 0.8em 0.8em;
+        border-top: 0em solid #f200ff;
+        text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+        bottom: 1vh;
+
+      }
+      .button {
+        background: #1f1f1f;
+        color: white;
+        cursor: pointer;
+        width: 36vw;
+        height: 8vh;
+        border: 0em solid #ffffff;
+        border-radius: 2em;
+        margin: 1.2em;
+        font-family: Archivo Black;
+        font-size: 1.2rem;
+        text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
+        box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Wallet</h1>
+    </div>
+    <div class="container">
+      <div class="container-header">
+        <p>Total balance</p>
+      </div>
+      <div class="tokens">
+        <div class="token-line">
+          <div class="usdt">
+            <img src="/static/usdt.png">
+          </div>
+          <div class="line">
+            <p><span>0.0</span> USDT</p>
+          </div>
+        </div>
+        <div class="token-line">
+          <div class="ton">
+            <img src="/static/toncoin-ton-logo.jpg">
+          </div>
+          <div class="line">
+            <p><span>0.0</span> TON</p>
+          </div>
+        </div>
+        <div class="token-line">
+          <div class="tcl">
+            <img src="">
+          </div>
+          <div class="line">
+            <p><span>0.0</span> TCL</p>
+          </div>
+        </div>
+        <div class="token-line">
+          <div class="tea">
+            <img src="">
+          </div>
+          <div class="line">
+            <p><span>0.0</span> TEA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="location.href='/NFT.html'">Deposit</button>
+        <button class="button" onclick="location.href='/mine_tcl'">Withdraw</button>
+    </div>
+    <div class="back-button">
+      <button class="button-back" onclick="location.href='index.html'">BACK</button>
+    </div>
+
+  </body>
+</html>
