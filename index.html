@@ -31,13 +31,48 @@
           font-weight: bold;
           font-family: Shadows into light;
           text-transform: uppercase;
-          letter-spacing: 0.5rem;
+          letter-spacing: 0.3rem;
           height: 8vh;
           line-height: 200%;
           text-shadow: 0.2vw 1vh 10px rgba(62, 1, 74, 1);
+        }
+        .ton-balance {
+          height: 6vh;
+          width: 90vw;
+          position: absolute;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          font-family: Archivo Black;
+          font-size: 0.8rem;
+          margin: 1em;
+          white-space: nowrap;
 
         }
-
+        .ton img {
+          background: none;
+          border-radius: 50px;
+          position: absolute;
+          float: left;
+          top: 0vh;
+          max-height: 100%;
+          max-width: 100%;
+          box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
+        }
+        .balance {
+          color: #333333;
+          background: white;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          border-radius: 3em;
+          width: 10vw;
+          height: 1.7vh;
+          padding: 1em;
+          padding-left: 3.4em;
+          padding-right: em;
+          margin: 0.23em;
+          box-shadow: 1vw 1vh 20px rgba(0, 0, 0, 0.5);
         }
         .container {
           color: white;
@@ -46,7 +81,7 @@
           background: linear-gradient(260deg, #d938f5, #ae2aeb);
           width: 86%;
           border-radius: 2.8em;
-          margin-top: 0.5em;
+          margin-top: 9vh;
           margin-left: 7%;
           margin-right: 7%;
           padding: 1.2em;
@@ -55,8 +90,6 @@
           flex-direction: column;
           font-family: Archivo Black;
           box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.5);
-
-
         }
         .info {
           display: flex;
@@ -65,7 +98,7 @@
           height: 60vh;
 
         }
-        .balance {
+        .balances {
           display: flex;
           justify-content: space-between;
           gap: 8vw;
@@ -78,11 +111,15 @@
           border-right: 0px solid white;
           border-bottom: 0.1em solid #49005c;
           border-radius: 2em 2em 0px 0px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
           opacity: 1;
           word-spacing: 0.1em;
           letter-spacing: 0.06em;
           flex: 1;
-          padding: 2.2em;
+          padding: 0.8em;
           font-size: 0.8rem;
           box-shadow: 0vw 1vh 26px rgba(0, 0, 0, 0.6);
           text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
@@ -95,11 +132,15 @@
           border-right: 0px solid white;
           border-top: 0.1em solid #49005c;
           border-radius: 0px 0px 1.6em 1.6em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
           opacity: 1;
           word-spacing: 0.1em;
           flex: 1;
           float: center;
-          padding: 1.3em;
+          padding: 0.8em;
           font-size: 0.8rem;
           box-shadow: 0px 1.5vh 20px rgba(0, 0, 0, 0.5);
           text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
@@ -115,7 +156,7 @@
         .button-container {
           display: flex;
           justify-content: space-between;
-          width: 85vw;
+          width: 84vw;
           position: absolute;
           height: 8vh;
           bottom: 1vh;
@@ -128,8 +169,8 @@
           border: none;
           cursor: pointer;
           height: 7.5vh;
-          width: 32vw;
-          font-size: 1.1rem;
+          width: 33vw;
+          font-size: 1rem;
           font-family: Archivo Black;
           box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
           text-shadow: 0.4vw 0.5vh 4px rgba(0, 0, 0, 0.6);
@@ -150,26 +191,35 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1> Coffe Land</h1><br>
+    <div class="ton-balance">
+        <div class="ton">
+            <img src="static/toncoin-ton-logo.jpg">
+        </div>
+        <div class="balance">
+            <p><span>0.01</span> TON</p>
+        </div>
     </div>
+
+    <!--<div class="header">
+        <h1> Coffe Land</h1><br>
+    </div>-->
     <div class="container">
         <div class="info">
             <div class="table_hash">
                 <p>TEA Hashrate:</p>
-                <p> 0.0000 TEA/min</p>
+                <p><span>0.0000</span> TEA/min</p>
             </div>
             <div class="table_hash">
                 <p>TCL Hashrate:</p>
-                <p> 0.0000 TCL/min</p>
+                <p><span>0.0000</span> TCL/min</p>
             </div>
         </div>
-        <div class="balance">
+        <div class="balances">
             <div class="table_balance">
-                <p>TEA Balance: 0.0000</p>
+                <p>TEA Balance: <span>0.0000</span></p>
             </div>
             <div class="table_balance">
-                <p>TCL Balance: 0.0000</p>
+                <p>TCL Balance: <span>0.0000</span></p>
             </div>
         </div>
     </div>
