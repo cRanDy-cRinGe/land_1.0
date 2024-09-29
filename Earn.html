@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title>Earn</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+        * {
+          margin: 0;
+          padding; 0;
+        }
+        body {
+          background-color: #333333;
+          align-items: center;
+          height: 100vh;
+          width: 100vw;
+          max-height: 100vh;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          overflow: hidden;
+        }
+        .spinner {
+          position: relative;
+          top: 5vh;
+          background-image: linear-gradient(rgb(186, 66, 255) 35%,rgb(0, 225, 255));
+          width: 240px;
+          height: 240px;
+          animation: spinning82341 1.7s linear infinite;
+          text-align: center;
+          border-radius: 10em;
+          filter: blur(1px);
+          box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+        }
+
+        .spinner1 {
+          position: relative;
+          background-color: rgb(36, 36, 36);
+          width: 100%;
+          height: 100%;
+          border-radius: 10em;
+          filter: blur(10px);
+        }
+
+        @keyframes spinning82341 {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .header {
+          padding-top: 16.5vh;
+          position: absolute;
+          color: white;
+          font-size: 1.6rem;
+          font-family: Archivo Black;
+          text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+        }
+        .container {
+          background: #262626;
+          width: 94vw;
+          height: 36vh;
+          border-radius: 1.4em;
+          display: flex;
+          justify-content: space-between;
+          align-items: left;
+          flex-direction: column;
+          overflow-y: auto;
+          margin-top: 0;
+          position: absolute;
+          top: 46vh;
+        }
+        /* From Uiverse.io by Yaya12085 */
+        button {
+          width: 60vw;
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          padding: 0.875rem 72px 0.875rem 1.75rem;
+          background-color: #039be5;
+          background-image: linear-gradient(to top right, #039be5, #29b6f6);
+          color: #ffffff;
+          font-size: 1.2rem;
+          white-space: nowrap;
+          line-height: 1.25rem;
+          font-weight: 700;
+          text-align: center;
+          text-transform: uppercase;
+          cursor: pointer;
+          vertical-align: middle;
+          align-items: center;
+          border-radius: 0.5rem;
+          gap: 0.75rem;
+          box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          border: none;
+          transition: all 0.6s ease;
+          margin: 1.4em 0.8em;
+        }
+
+        button link {
+          background-color: rgb(3 155 229);
+          display: grid;
+          position: absolute;
+          right: 0;
+          place-items: center;
+          width: 3rem;
+          height: 100%;
+        }
+
+        button link svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+        .footer {
+          margin-bottom: 2.2em;
+          font-family: Archivo Black;
+        }
+        .uiverse {
+          font-family: Archivo Black;
+          --duration: 7s;
+          --easing: linear;
+          --c-color-1: #ff5252;
+         /* Changed to red */
+          --c-color-2: #00bcd4;
+         /* Changed to cyan */
+          --c-color-3: #9c27b0;
+         /* Changed to purple */
+          --c-color-4: #ffeb3b;
+         /* Changed to yellow */
+          --c-shadow: rgba(0, 0, 0, 0.3);
+         /* Changed shadow color */
+          --c-shadow-inset-top: rgba(0, 0, 0, 0.5);
+         /* Changed shadow color */
+          --c-shadow-inset-bottom: rgba(0, 0, 0, 0.4);
+         /* Changed shadow color */
+          --c-radial-inner: #ff4081;
+         /* Changed to pink */
+          --c-radial-outer: #2196f3;
+         /* Changed to blue */
+          --c-color: #fff;
+          -webkit-tap-highlight-color: transparent;
+          -webkit-appearance: none;
+          outline: none;
+          position: relative;
+          cursor: pointer;
+          border: none;
+          display: table;
+          border-radius: 2em;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.2rem;
+          letter-spacing: 0.02em;
+          line-height: 1.5;
+          color: var(--c-color);
+          background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
+          box-shadow: 0 0 14px var(--c-shadow);
+        }
+
+        .uiverse:before {
+          content: '';
+          pointer-events: none;
+          position: absolute;
+          z-index: 3;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 2em;
+          box-shadow: inset 0 3px 12px var(--c-shadow-inset-top), inset 0 -3px 4px var(--c-shadow-inset-bottom);
+        }
+
+        .uiverse .wrapper {
+          -webkit-mask-image: -webkit-radial-gradient(white, black);
+          overflow: hidden;
+          border-radius: 2em;
+          min-width: 132px;
+          padding: 12px 0;
+        }
+
+        .uiverse .wrapper span {
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+        }
+
+        .uiverse .wrapper .circle {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          filter: blur(var(--blur, 8px));
+          background: var(--background, transparent);
+          transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+          animation: var(--animation, none) var(--duration) var(--easing) infinite;
+        }
+
+        .uiverse .wrapper .circle.circle-1, .uiverse .wrapper .circle.circle-9, .uiverse .wrapper .circle.circle-10 {
+          --background: var(--c-color-4);
+        }
+
+        .uiverse .wrapper .circle.circle-3, .uiverse .wrapper .circle.circle-4 {
+          --background: var(--c-color-2);
+          --blur: 14px;
+        }
+
+        .uiverse .wrapper .circle.circle-5, .uiverse .wrapper .circle.circle-6 {
+          --background: var(--c-color-3);
+          --blur: 16px;
+        }
+
+        .uiverse .wrapper .circle.circle-2, .uiverse .wrapper .circle.circle-7, .uiverse .wrapper .circle.circle-8, .uiverse .wrapper .circle.circle-11, .uiverse .wrapper .circle.circle-12 {
+          --background: var(--c-color-1);
+          --blur: 12px;
+        }
+
+        .uiverse .wrapper .circle.circle-1 {
+          --x: 0;
+          --y: -40px;
+          --animation: circle-1;
+        }
+
+        .uiverse .wrapper .circle.circle-2 {
+          --x: 92px;
+          --y: 8px;
+          --animation: circle-2;
+        }
+
+        .uiverse .wrapper .circle.circle-3 {
+          --x: -12px;
+          --y: -12px;
+          --animation: circle-3;
+        }
+
+        .uiverse .wrapper .circle.circle-4 {
+          --x: 80px;
+          --y: -12px;
+          --animation: circle-4;
+        }
+
+        .uiverse .wrapper .circle.circle-5 {
+          --x: 12px;
+          --y: -4px;
+          --animation: circle-5;
+        }
+
+        .uiverse .wrapper .circle.circle-6 {
+          --x: 56px;
+          --y: 16px;
+          --animation: circle-6;
+        }
+
+        .uiverse .wrapper .circle.circle-7 {
+          --x: 8px;
+          --y: 28px;
+          --animation: circle-7;
+        }
+
+        .uiverse .wrapper .circle.circle-8 {
+          --x: 28px;
+          --y: -4px;
+          --animation: circle-8;
+        }
+
+        .uiverse .wrapper .circle.circle-9 {
+          --x: 20px;
+          --y: -12px;
+          --animation: circle-9;
+        }
+
+        .uiverse .wrapper .circle.circle-10 {
+          --x: 64px;
+          --y: 16px;
+          --animation: circle-10;
+        }
+
+        .uiverse .wrapper .circle.circle-11 {
+          --x: 4px;
+          --y: 4px;
+          --animation: circle-11;
+        }
+
+        .uiverse .wrapper .circle.circle-12 {
+          --blur: 14px;
+          --x: 52px;
+          --y: 4px;
+          --animation: circle-12;
+        }
+
+        @keyframes circle-1 {
+          33% {
+            transform: translate(0px, 16px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(12px, 64px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-2 {
+          33% {
+            transform: translate(80px, -10px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(72px, -48px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-3 {
+          33% {
+            transform: translate(20px, 12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(12px, 4px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-4 {
+          33% {
+            transform: translate(76px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(112px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-5 {
+          33% {
+            transform: translate(84px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(40px, -32px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-6 {
+          33% {
+            transform: translate(28px, -16px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(76px, -56px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-7 {
+          33% {
+            transform: translate(8px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(20px, -60px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-8 {
+          33% {
+            transform: translate(32px, -4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(56px, -20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-9 {
+          33% {
+            transform: translate(20px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(80px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-10 {
+          33% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(100px, 28px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-11 {
+          33% {
+            transform: translate(4px, 4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-12 {
+          33% {
+            transform: translate(56px, 0px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(60px, -32px) translateZ(0);
+          }
+        }
+     </style>
+</head>
+
+<body>
+    <div class="spinner">
+        <div class="spinner1"></div>
+    </div>
+    <div class="header"><h1>Earn</h1></div>
+
+    <div class="container">
+        <div class="task">
+            <button>
+              Join twitter
+              <span class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path
+                    fill="#fff"
+                    d="M16 3.539a6.839 6.839 0 0 1-1.89.518 3.262 3.262 0 0 0 1.443-1.813 6.555 6.555 0 0 1-2.08.794
+                     3.28 3.28 0 0 0-5.674 2.243c0 .26.022.51.076.748a9.284 9.284 0 0 1-6.761-3.431 3.285 3.285 0 0 0 1.008
+                     4.384A3.24 3.24 0 0 1 .64 6.578v.036a3.295 3.295 0 0 0 2.628 3.223 3.274 3.274 0 0 1-.86.108 2.9 2.9 0
+                     0 1-.621-.056 3.311 3.311 0 0 0 3.065 2.285 6.59 6.59 0 0 1-4.067 1.399c-.269 0-.527-.012-.785-.045A9.234
+                     9.234 0 0 0 5.032 15c6.036 0 9.336-5 9.336-9.334 0-.145-.005-.285-.012-.424A6.544 6.544 0 0 0 16 3.539z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+            <button>
+              Join Telegram Chanel
+              <span class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path
+                    fill="#fff"
+                    d="M16 3.539a6.839 6.839 0 0 1-1.89.518 3.262 3.262 0 0 0 1.443-1.813 6.555 6.555 0 0 1-2.08.794
+                     3.28 3.28 0 0 0-5.674 2.243c0 .26.022.51.076.748a9.284 9.284 0 0 1-6.761-3.431 3.285 3.285 0 0 0 1.008
+                     4.384A3.24 3.24 0 0 1 .64 6.578v.036a3.295 3.295 0 0 0 2.628 3.223 3.274 3.274 0 0 1-.86.108 2.9 2.9 0
+                     0 1-.621-.056 3.311 3.311 0 0 0 3.065 2.285 6.59 6.59 0 0 1-4.067 1.399c-.269 0-.527-.012-.785-.045A9.234
+                     9.234 0 0 0 5.032 15c6.036 0 9.336-5 9.336-9.334 0-.145-.005-.285-.012-.424A6.544 6.544 0 0 0 16 3.539z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+            <button>
+              Join Telegram Chat
+              <span class="link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path
+                    fill="#fff"
+                    d="M16 3.539a6.839 6.839 0 0 1-1.89.518 3.262 3.262 0 0 0 1.443-1.813 6.555 6.555 0 0 1-2.08.794
+                     3.28 3.28 0 0 0-5.674 2.243c0 .26.022.51.076.748a9.284 9.284 0 0 1-6.761-3.431 3.285 3.285 0 0 0 1.008
+                     4.384A3.24 3.24 0 0 1 .64 6.578v.036a3.295 3.295 0 0 0 2.628 3.223 3.274 3.274 0 0 1-.86.108 2.9 2.9 0
+                     0 1-.621-.056 3.311 3.311 0 0 0 3.065 2.285 6.59 6.59 0 0 1-4.067 1.399c-.269 0-.527-.012-.785-.045A9.234
+                     9.234 0 0 0 5.032 15c6.036 0 9.336-5 9.336-9.334 0-.145-.005-.285-.012-.424A6.544 6.544 0 0 0 16 3.539z"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+
+        </div>
+    </div>
+    <div class="footer">
+        <button class="uiverse" onclick="window.location.href='index.html'">
+          <div class="wrapper">
+            <span>BACK</span>
+            <div class="circle circle-12"></div>
+            <div class="circle circle-11"></div>
+            <div class="circle circle-10"></div>
+            <div class="circle circle-9"></div>
+            <div class="circle circle-8"></div>
+            <div class="circle circle-7"></div>
+            <div class="circle circle-6"></div>
+            <div class="circle circle-5"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-1"></div>
+          </div>
+        </button>
+
+    </div>
+</body>
+</html>
