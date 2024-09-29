@@ -16,10 +16,12 @@
           align-items: center;
           height: 100vh;
           width: 100vw;
+          max-height: 100vh;
           display: flex;
           justify-content: space-between;
           flex-direction: column;
           background-size: cover;
+          overflow: hidden;
         }
         .background {
           position: absolute;
@@ -52,6 +54,7 @@
           justify-content: space-around;
           flex-wrap: wrap;
           z-index: 1;
+          margin-bottom: 0em;
         }
         .buy-container {
           height: 50vh;
@@ -107,72 +110,77 @@
           z-index: 20;
         }
         .nft-card {
-          margin: 1em;
-          width: 28vh;
-          height: 32vh;
-          z-index: 2;
-          background: rgb(255, 0, 179);
-          background: linear-gradient(137deg, rgb(255, 0, 179) 0%, rgba(0,212,255,1) 100%);
-          transition: 0.3s ease;
-          border-radius: 1.8em;
-          filter: drop-shadow(0px 0px 30px rgba(209, 38, 197, 0.5));
+          margin: 0.8em;
+          width: 190px;
+          height: 254px;
+          border-radius: 1rem;
+          background-color: #4158D0;
+          background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+          box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
         }
 
-        .nft-card::after {
-          content: '';
-          background-color: #181818;
-          position: absolute;
-          z-index: 3;
-          height: 31.3vh;
-          width: 32vw;
-          top: 1%;
-          left: 1%;
-          border-radius: 1.7em;
-        }
-
-        .nft-card:hover {
-          filter: drop-shadow(0px 0px 30px rgba(209, 38, 197, 1));
-        }
         .buy-button {
-          width: 30vw;
-          height: 8vh;
-          cursor: pointer;
-          color: #fff;
-          font-size: 1.1rem;
-          border-radius: 1.2rem;
+          width: 27vw;
+          height: 6vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1em;
+          padding: 0px 1em;
+          background-color: red;
+          border-radius: 2em;
           border: none;
+          color: white;
           position: relative;
-          background: #100720;
-          transition: 0.1s;
-          margin-top: 0;
+          cursor: pointer;
+          font-weight: 900;
+          transition-duration: .2s;
+          background: linear-gradient(0deg, #000, #272727);
         }
 
-        button::after {
+        .buy-button:before, .button:after {
           content: '';
-          width: 100%;
-          height: 100%;
-          background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-          filter: blur(15px);
-          z-index: -2;
           position: absolute;
-          left: 0;
-          top: 0;
+          left: -0.2em;
+          top: -0.2em;
+          border-radius: 2em;
+          background: linear-gradient(45deg, #ff00f7, #C850C0, #C850C0, #ff0095, #ea00ff, #ea00ff,
+                #9500ff, #9500ff ,#70b5ff, #70b5ff   );
+          background-size: 400%;
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          z-index: -1;
+          animation: steam 20s linear infinite;
         }
 
-        button:active {
-          transform: scale(0.9) rotate(3deg);
-          background: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-          transition: 0.5s;
+        @keyframes steam {
+          0% {
+            background-position: 0 0;
+          }
+
+          50% {
+            background-position: 400% 0;
+          }
+
+          100% {
+            background-position: 0 0;
+          }
         }
+
+        .buy-button:after {
+          filter: blur(50px);
+        }
+
+
         .footer {
           background: #1f1f1f;
           color: white;
           cursor: pointer;
           width: 98vw;
-          height: 10vh;
+          height: 8vh;
           border: 0em solid #ffffff;
           border-radius: 2em;
-          margin: 0em;
+          margin-top: 0em;
           font-family: Archivo Black;
           font-size: 1.8rem;
           text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
@@ -183,185 +191,299 @@
           font-family: Archivo Black;
 
         }
-        /* From Uiverse.io by StealthWorm */
-        .btn {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 13rem;
-          overflow: hidden;
-          height: 3rem;
-          background-size: 300% 300%;
-          cursor: pointer;
-          backdrop-filter: blur(1rem);
-          border-radius: 5rem;
-          transition: 0.5s;
-          animation: gradient_301 5s ease infinite;
-          border: double 4px transparent;
-          background-image: linear-gradient(#212121, #212121),
-            linear-gradient(
-              137.48deg,
-              #ff00b3 10%,
-              #00d5ff 45%,
-              #ff00b3 67%,
-              #00d5ff 87%
-            );
-          background-origin: border-box;
-          background-clip: content-box, border-box;
-
-        }
-
-        .container-stars {
-          position: absolute;
-          z-index: -1;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          transition: 0.5s;
-          backdrop-filter: blur(1rem);
-          border-radius: 5rem;
-        }
-
-        strong {
-          z-index: 2;
-          font-size: 1.1rem;
-          font-family: Archivo Black;
-          letter-spacing: 5px;
-          color: #ffffff;
-          text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-        }
-
-        .glow {
-          position: absolute;
-          display: flex;
-          width: 12rem;
-        }
-
-        .circle {
-          width: 100%;
-          height: 30px;
-          filter: blur(2rem);
-          animation: pulse_3011 4s infinite;
-          z-index: -1;
-        }
-
-        .circle:nth-of-type(1) {
-          background: rgba(254, 83, 186, 0.636);
-        }
-
-        .circle:nth-of-type(2) {
-          background: rgba(142, 81, 234, 0.704);
-        }
-
-        .btn:hover #container-stars {
-          z-index: 1;
-          background-color: #212121;
-        }
-
-        .btn:hover {
-          transform: scale(1.1);
-        }
-
-        .btn:active {
-          border: double 4px #fe53bb;
-          background-origin: border-box;
-          background-clip: content-box, border-box;
-          animation: none;
-        }
-
-        .btn:active .circle {
-          background: #fe53bb;
-        }
-
-        .stars {
+        .uiverse {
+          --duration: 7s;
+          --easing: linear;
+          --c-color-1: rgba(26, 163, 255, .7);
+         /* Changed color */
+          --c-color-2: #1aff1a;
+         /* Changed color */
+          --c-color-3: #ff1a75;
+         /* Changed color */
+          --c-color-4: rgba(26, 232, 255, .7);
+         /* Changed color */
+          --c-shadow: rgba(87, 223, 255, .5);
+         /* Changed color */
+          --c-shadow-inset-top: rgba(52, 223, 255, .9);
+         /* Changed color */
+          --c-shadow-inset-bottom: rgba(215, 250, 255, .8);
+         /* Changed color */
+          --c-radial-inner: #15d2ff;
+         /* Changed color */
+          --c-radial-outer: #72faff;
+         /* Changed color */
+          --c-color: #fff;
+          -webkit-tap-highlight-color: transparent;
+          -webkit-appearance: none;
+          outline: none;
           position: relative;
-          background: transparent;
-          width: 200rem;
-          height: 200rem;
+          cursor: pointer;
+          border: none;
+          display: table;
+          border-radius: 24px;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.1rem;
+          letter-spacing: 0.02em;
+          line-height: ;
+          color: var(--c-color);
+          background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
+          box-shadow: 0 0 14px var(--c-shadow);
         }
 
-        .stars::after {
-          content: "";
+        .uiverse:before {
+          content: '';
+          pointer-events: none;
           position: absolute;
-          top: -10rem;
-          left: -100rem;
-          width: 100%;
-          height: 100%;
-          animation: animStarRotate 90s linear infinite;
-        }
-
-        .stars::after {
-          background-image: radial-gradient(#ffffff 1px, transparent 1%);
-          background-size: 50px 50px;
-        }
-
-        .stars::before {
-          content: "";
-          position: absolute;
+          z-index: 3;
+          left: 0;
           top: 0;
-          left: -50%;
-          width: 170%;
-          height: 500%;
-          animation: animStar 60s linear infinite;
+          right: 0;
+          bottom: 0;
+          border-radius: 2em;
+          box-shadow: inset 0 3px 12px var(--c-shadow-inset-top), inset 0 -3px 4px var(--c-shadow-inset-bottom);
         }
 
-        .stars::before {
-          background-image: radial-gradient(#ffffff 1px, transparent 1%);
-          background-size: 50px 50px;
-          opacity: 0.5;
+        .uiverse .wrapper {
+          -webkit-mask-image: -webkit-radial-gradient(white, black);
+          overflow: hidden;
+          border-radius: 2em;
+          min-width: 132px;
+          padding: 0.7em 0;
         }
 
-        @keyframes animStar {
-          from {
-            transform: translateY(0);
+        .uiverse .wrapper span {
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+        }
+
+        .uiverse .wrapper .circle {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          filter: blur(var(--blur, 8px));
+          background: var(--background, transparent);
+          transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+          animation: var(--animation, none) var(--duration) var(--easing) infinite;
+        }
+
+        .uiverse .wrapper .circle.circle-1, .uiverse .wrapper .circle.circle-9, .uiverse .wrapper .circle.circle-10 {
+          --background: var(--c-color-4);
+        }
+
+        .uiverse .wrapper .circle.circle-3, .uiverse .wrapper .circle.circle-4 {
+          --background: var(--c-color-2);
+          --blur: 14px;
+        }
+
+        .uiverse .wrapper .circle.circle-5, .uiverse .wrapper .circle.circle-6 {
+          --background: var(--c-color-3);
+          --blur: 16px;
+        }
+
+        .uiverse .wrapper .circle.circle-2, .uiverse .wrapper .circle.circle-7, .uiverse .wrapper .circle.circle-8, .uiverse .wrapper .circle.circle-11, .uiverse .wrapper .circle.circle-12 {
+          --background: var(--c-color-1);
+          --blur: 12px;
+        }
+
+        .uiverse .wrapper .circle.circle-1 {
+          --x: 0;
+          --y: -40px;
+          --animation: circle-1;
+        }
+
+        .uiverse .wrapper .circle.circle-2 {
+          --x: 92px;
+          --y: 8px;
+          --animation: circle-2;
+        }
+
+        .uiverse .wrapper .circle.circle-3 {
+          --x: -12px;
+          --y: -12px;
+          --animation: circle-3;
+        }
+
+        .uiverse .wrapper .circle.circle-4 {
+          --x: 80px;
+          --y: -12px;
+          --animation: circle-4;
+        }
+
+        .uiverse .wrapper .circle.circle-5 {
+          --x: 12px;
+          --y: -4px;
+          --animation: circle-5;
+        }
+
+        .uiverse .wrapper .circle.circle-6 {
+          --x: 56px;
+          --y: 16px;
+          --animation: circle-6;
+        }
+
+        .uiverse .wrapper .circle.circle-7 {
+          --x: 8px;
+          --y: 28px;
+          --animation: circle-7;
+        }
+
+        .uiverse .wrapper .circle.circle-8 {
+          --x: 28px;
+          --y: -4px;
+          --animation: circle-8;
+        }
+
+        .uiverse .wrapper .circle.circle-9 {
+          --x: 20px;
+          --y: -12px;
+          --animation: circle-9;
+        }
+
+        .uiverse .wrapper .circle.circle-10 {
+          --x: 64px;
+          --y: 16px;
+          --animation: circle-10;
+        }
+
+        .uiverse .wrapper .circle.circle-11 {
+          --x: 4px;
+          --y: 4px;
+          --animation: circle-11;
+        }
+
+        .uiverse .wrapper .circle.circle-12 {
+          --blur: 14px;
+          --x: 52px;
+          --y: 4px;
+          --animation: circle-12;
+        }
+
+        @keyframes circle-1 {
+          33% {
+            transform: translate(0px, 16px) translateZ(0);
           }
 
-          to {
-            transform: translateY(-135rem);
+          66% {
+            transform: translate(12px, 64px) translateZ(0);
           }
         }
 
-        @keyframes animStarRotate {
-          from {
-            transform: rotate(360deg);
+        @keyframes circle-2 {
+          33% {
+            transform: translate(80px, -10px) translateZ(0);
           }
 
-          to {
-            transform: rotate(0);
-          }
-        }
-
-        @keyframes gradient_301 {
-          0% {
-            background-position: 0% 50%;
-          }
-
-          50% {
-            background-position: 100% 50%;
-          }
-
-          100% {
-            background-position: 0% 50%;
+          66% {
+            transform: translate(72px, -48px) translateZ(0);
           }
         }
 
-        @keyframes pulse_3011 {
-          0% {
-            transform: scale(0.75);
-            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+        @keyframes circle-3 {
+          33% {
+            transform: translate(20px, 12px) translateZ(0);
           }
 
-          70% {
-            transform: scale(1);
-            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-          }
-
-          100% {
-            transform: scale(0.75);
-            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+          66% {
+            transform: translate(12px, 4px) translateZ(0);
           }
         }
 
+        @keyframes circle-4 {
+          33% {
+            transform: translate(76px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(112px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-5 {
+          33% {
+            transform: translate(84px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(40px, -32px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-6 {
+          33% {
+            transform: translate(28px, -16px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(76px, -56px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-7 {
+          33% {
+            transform: translate(8px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(20px, -60px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-8 {
+          33% {
+            transform: translate(32px, -4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(56px, -20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-9 {
+          33% {
+            transform: translate(20px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(80px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-10 {
+          33% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(100px, 28px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-11 {
+          33% {
+            transform: translate(4px, 4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-12 {
+          33% {
+            transform: translate(56px, 0px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(60px, -32px) translateZ(0);
+          }
+        }
     </style>
 </head>
 <body>
@@ -462,28 +584,41 @@
         </div>
     </div>
     <div class="footer">
-        <button onclick="window.location.href='index.html'" class="btn">
-            <strong>BACK</strong>
-            <div class="container-stars">
-                <div class="stars"></div>
-            </div>
-            <div class="glow">
-                <div class="circle"></div>
-                <div class="circle"></div>
-            </div>
+        <button class="uiverse">
+          <div class="wrapper">
+            <span>UIVERSE</span>
+            <div class="circle circle-12"></div>
+            <div class="circle circle-11"></div>
+            <div class="circle circle-10"></div>
+            <div class="circle circle-9"></div>
+            <div class="circle circle-8"></div>
+            <div class="circle circle-7"></div>
+            <div class="circle circle-6"></div>
+            <div class="circle circle-5"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-1"></div>
+          </div>
         </button>
-        <button type="button" class="btn">
-            <strong>INFO</strong>
-            <div class="container-stars">
-                <div class="stars"></div>
-            </div>
-            <div class="glow">
-                <div class="circle"></div>
-                <div class="circle"></div>
-            </div>
+        <button class="uiverse">
+          <div class="wrapper">
+            <span>UIVERSE</span>
+            <div class="circle circle-12"></div>
+            <div class="circle circle-11"></div>
+            <div class="circle circle-10"></div>
+            <div class="circle circle-9"></div>
+            <div class="circle circle-8"></div>
+            <div class="circle circle-7"></div>
+            <div class="circle circle-6"></div>
+            <div class="circle circle-5"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-1"></div>
+          </div>
         </button>
     </div>
-
 
 </body>
 </html>
