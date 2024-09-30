@@ -51,15 +51,15 @@
           border-radius: 2em;
           overflow-y: auto;
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           flex-wrap: wrap;
           z-index: 1;
           margin-bottom: 0em;
         }
         .buy-container {
-          padding: 0em 2em;
+          padding: 0em 2vw;
           height: 50vh;
-          width: 32vw;
+          width: 42vw;
           text-align: center;
           display: flex;
           justify-content: center;
@@ -195,23 +195,23 @@
         .uiverse {
           --duration: 7s;
           --easing: linear;
-          --c-color-1: rgba(26, 163, 255, .7);
+          --c-color-1: rgba(217, 26, 255, .7);
          /* Changed color */
-          --c-color-2: #1aff1a;
+          --c-color-2: #fa66ae;
          /* Changed color */
           --c-color-3: #ff1a75;
          /* Changed color */
-          --c-color-4: rgba(26, 232, 255, .7);
+          --c-color-4: rgba(245, 193, 81, .7);
          /* Changed color */
-          --c-shadow: rgba(87, 223, 255, .5);
+          --c-shadow: rgba(245, 193, 81, .5);
          /* Changed color */
-          --c-shadow-inset-top: rgba(52, 223, 255, .9);
+          --c-shadow-inset-top: rgba(142, 77, 196, .9);
          /* Changed color */
           --c-shadow-inset-bottom: rgba(215, 250, 255, .8);
          /* Changed color */
           --c-radial-inner: #15d2ff;
          /* Changed color */
-          --c-radial-outer: #72faff;
+          --c-radial-outer: #f80dfc;
          /* Changed color */
           --c-color: #fff;
           -webkit-tap-highlight-color: transparent;
@@ -232,6 +232,8 @@
           color: var(--c-color);
           background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
           box-shadow: 0 0 14px var(--c-shadow);
+          font-family: Archivo Black;
+          text-shadow: 0em 0em 14px rgba(255, 255, 255, 0.6)
         }
 
         .uiverse:before {
@@ -530,7 +532,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="static/usdt.png">
             </div>
             <div class="nft-card">
             </div>
