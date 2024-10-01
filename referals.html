@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title>Referrals</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+        * {
+          margin: 0;
+          padding; 0;
+        }
+        body {
+          background-color: #333333;
+          align-items: center;
+          height: 100vh;
+          width: 100vw;
+          max-height: 100vh;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          overflow: hidden;
+        }
+        .header {
+          background: #262626;
+          width: 100vw;
+          color: white;
+          border-radius: 0em 0em 0.6em 0.6em;
+          border-bottom: 0.1em solid #f200ff;
+          height: 13vh;
+          text-align: center;
+          font-family: Archivo Black;
+          font-size: 1.8rem;
+          text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+          box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
+        }
+        .info {
+          position: absolute;
+          top: 18vh;
+          display: flex;
+          justify-content: center;
+
+        }
+        .ref-info-link {
+          position: absolute;
+          left: 1vw;
+          width: 78vw;
+          z-index: 50;
+          color: white;
+          font-size: 1.4rem;
+          font-family: Archivo Black;
+          line-height: 7.8vh;
+          background:;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: left;
+          margin: 0.38em 0em;
+        }
+        .link {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 1.4em;
+          font-size: 0.9rem;
+          padding: 0em 3em 0em 1.4em;
+          letter-spacing: 0.1em;
+          width: 78vw;
+          height: 7vh;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0em 0em 0em 1em;
+        }
+        .ref-info {
+          width: 86vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .copy {
+          background-color: #f2f7fa;
+          width: 18vw;
+          height: 5vh;
+          border: none;
+          border-radius: 10px;
+          font-weight: 600;
+          cursor: pointer;
+          overflow: hidden;
+          transition-duration: 700ms;
+          white-space: nowrap;
+          margin-left: 3.8em;
+        }
+
+        .copy span:first-child {
+          color: #0e418f;
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
+
+        .copy span:last-child {
+          position: absolute;
+          color: #b5ccf3;
+          opacity: 0;
+          transform: translateY(100%) translateX(-50%);
+          height: 14px;
+          line-height: 13px;
+        }
+
+        .copy:focus {
+          background-color: #0e418f;
+          width: 120px;
+          height: 40px;
+          transition-delay: 50ms;
+          transition-duration: 250ms;
+        }
+
+        .copy:focus span:first-child {
+          color: #b5ccf3;
+          transform: translateX(-50%) translateY(-150%);
+          opacity: 0;
+          transition-duration: 250ms;
+        }
+
+        .copy:focus span:last-child {
+          transform: translateX(-50%) translateY(-50%);
+          opacity: 1;
+          transition-delay: 150ms;
+          transition-duration: 250ms;
+        }
+
+        .copy:focus:end {
+          background-color: #ffffff;
+          width: 120px;
+          height: 40px;
+          transition-duration: 450ms;
+        }
+
+        .centralize {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .description {
+          margin-top: 0.6em;
+          color: #b5ccf3;
+        }
+
+        /* From Uiverse.io by JaydipPrajapati1910 */
+        .card {
+          width: 88vw;
+          height: 18vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1em;
+          padding: 0px 1em;
+          background-color: red;
+          border-radius: 1em;
+          border: none;
+          color: white;
+          position: relative;
+          cursor: pointer;
+          font-weight: 900;
+          transition-duration: .2s;
+          background: linear-gradient(0deg, #000, #272727);
+        }
+
+        .card:before, .card:after {
+          content: '';
+          position: absolute;
+          left: -2px;
+          top: -2px;
+          border-radius: 1em;
+          background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
+                #fa0cea, #b907f5,#b907f5, #7300ff);
+          background-size: 400%;
+          width: 94vw;
+          height: 18.5vh;
+          z-index: -1;
+          animation: animation 20s linear infinite;
+        }
+
+        @keyframes animation {
+          0% {
+            background-position: 0 0;
+          }
+
+          50% {
+            background-position: 400% 0;
+          }
+
+          100% {
+            background-position: 0 0;
+          }
+        }
+        .card:after {
+          filter: blur(16px);
+        }
+        .reward {
+          width: 93vw;
+          height: 18vh;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          z-index: 1;
+          top: 40vh;
+          gap: 4em;
+
+        }
+        .card-reward {
+          width: 38vw;
+          height: 14vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1em;
+          padding: 0px 1em;
+          background-color: red;
+          border-radius: 1em;
+          border: none;
+          color: white;
+          position: relative;
+          cursor: pointer;
+          font-weight: 900;
+          transition-duration: .2s;
+          background: linear-gradient(0deg, #000, #272727);
+        }
+
+        .card-reward:before, .card-reward:after {
+          content: '';
+          position: absolute;
+          left: -2px;
+          top: -2px;
+          border-radius: 1em;
+          background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
+                #fa0cea, #b907f5,#b907f5, #7300ff);
+          background-size: 400%;
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          z-index: -1;
+          animation: steam 20s linear infinite;
+        }
+
+        @keyframes steam {
+          0% {
+            background-position: 0 0;
+          }
+
+          50% {
+            background-position: 200% 0;
+          }
+
+          100% {
+            background-position: 0 0;
+          }
+        }
+
+        .card-reward:after {
+          filter: blur(10px);
+        }
+        .ref-header {
+          position: absolute;
+          z-index: 2;
+          display: flex;
+          justify-content: space-around;
+          width: 92vw;
+          gap: 4em;
+          color: white;
+          font-size: 1.1rem;
+          font-family: Archivo black;
+          padding: 1em 0em;
+
+        }
+        .ref-reward {
+          background: ;
+          position: absolute;
+          z-index: 2;
+          display: flex;
+          justify-content: space-between;
+          width: 67vw;
+          left: 12vw;
+          gap: ;
+          color: white;
+          font-size: 1rem;
+          font-family: Archivo black;
+          padding: 3.8em 0em;
+        }
+        .history {
+          background:;
+          width: 92vw;
+          position: absolute;
+          z-index: 1;
+          display: flex;
+          justify-content: left;
+          top: 56vh;
+          flex-direction: column;
+        }
+        .history-header {
+          font-family: Archivo Black;
+          font-size: 2rem;
+          color: white;
+          letter-spacing: 0.1em;
+          text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.4);
+          margin-left: 2vw;
+          margin-bottom: 1vh;
+
+        }
+        .container-history {
+          background: #262626;
+          height: 28vh;
+          overflow: auto;
+          border-radius: 1.2em;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Archivo Black;
+          font-size: 1.4rem;
+          text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.6);
+        }
+
+        .uiverse {
+          --duration: 7s;
+          --easing: linear;
+          --c-color-1: rgba(217, 26, 255, .7);
+         /* Changed color */
+          --c-color-2: #fa66ae;
+         /* Changed color */
+          --c-color-3: #ff1a75;
+         /* Changed color */
+          --c-color-4: rgba(245, 193, 81, .7);
+         /* Changed color */
+          --c-shadow: rgba(245, 193, 81, .5);
+         /* Changed color */
+          --c-shadow-inset-top: rgba(142, 77, 196, .9);
+         /* Changed color */
+          --c-shadow-inset-bottom: rgba(215, 250, 255, .8);
+         /* Changed color */
+          --c-radial-inner: #15d2ff;
+         /* Changed color */
+          --c-radial-outer: #f80dfc;
+         /* Changed color */
+          --c-color: #fff;
+          -webkit-tap-highlight-color: transparent;
+          -webkit-appearance: none;
+          outline: none;
+          position: relative;
+          cursor: pointer;
+          border: none;
+          display: table;
+          border-radius: 24px;
+          padding: 0;
+          margin: 0em 0em 0.4em 0em ;
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.1rem;
+          letter-spacing: 0.02em;
+          line-height: ;
+          color: var(--c-color);
+          background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
+          box-shadow: 0 0 14px var(--c-shadow);
+          font-family: Archivo Black;
+          text-shadow: 0em 0em 14px rgba(255, 255, 255, 0.6)
+        }
+
+        .uiverse:before {
+          content: '';
+          pointer-events: none;
+          position: absolute;
+          z-index: 3;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 2em;
+          box-shadow: inset 0 3px 12px var(--c-shadow-inset-top), inset 0 -3px 4px var(--c-shadow-inset-bottom);
+        }
+
+        .uiverse .wrapper {
+          -webkit-mask-image: -webkit-radial-gradient(white, black);
+          overflow: hidden;
+          border-radius: 2em;
+          min-width: 132px;
+          padding: 0.7em 0;
+        }
+
+        .uiverse .wrapper span {
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+        }
+
+        .uiverse .wrapper .circle {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          filter: blur(var(--blur, 8px));
+          background: var(--background, transparent);
+          transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+          animation: var(--animation, none) var(--duration) var(--easing) infinite;
+        }
+
+        .uiverse .wrapper .circle.circle-1, .uiverse .wrapper .circle.circle-9, .uiverse .wrapper .circle.circle-10 {
+          --background: var(--c-color-4);
+        }
+
+        .uiverse .wrapper .circle.circle-3, .uiverse .wrapper .circle.circle-4 {
+          --background: var(--c-color-2);
+          --blur: 14px;
+        }
+
+        .uiverse .wrapper .circle.circle-5, .uiverse .wrapper .circle.circle-6 {
+          --background: var(--c-color-3);
+          --blur: 16px;
+        }
+
+        .uiverse .wrapper .circle.circle-2, .uiverse .wrapper .circle.circle-7, .uiverse .wrapper .circle.circle-8, .uiverse .wrapper .circle.circle-11, .uiverse .wrapper .circle.circle-12 {
+          --background: var(--c-color-1);
+          --blur: 12px;
+        }
+
+        .uiverse .wrapper .circle.circle-1 {
+          --x: 0;
+          --y: -40px;
+          --animation: circle-1;
+        }
+
+        .uiverse .wrapper .circle.circle-2 {
+          --x: 92px;
+          --y: 8px;
+          --animation: circle-2;
+        }
+
+        .uiverse .wrapper .circle.circle-3 {
+          --x: -12px;
+          --y: -12px;
+          --animation: circle-3;
+        }
+
+        .uiverse .wrapper .circle.circle-4 {
+          --x: 80px;
+          --y: -12px;
+          --animation: circle-4;
+        }
+
+        .uiverse .wrapper .circle.circle-5 {
+          --x: 12px;
+          --y: -4px;
+          --animation: circle-5;
+        }
+
+        .uiverse .wrapper .circle.circle-6 {
+          --x: 56px;
+          --y: 16px;
+          --animation: circle-6;
+        }
+
+        .uiverse .wrapper .circle.circle-7 {
+          --x: 8px;
+          --y: 28px;
+          --animation: circle-7;
+        }
+
+        .uiverse .wrapper .circle.circle-8 {
+          --x: 28px;
+          --y: -4px;
+          --animation: circle-8;
+        }
+
+        .uiverse .wrapper .circle.circle-9 {
+          --x: 20px;
+          --y: -12px;
+          --animation: circle-9;
+        }
+
+        .uiverse .wrapper .circle.circle-10 {
+          --x: 64px;
+          --y: 16px;
+          --animation: circle-10;
+        }
+
+        .uiverse .wrapper .circle.circle-11 {
+          --x: 4px;
+          --y: 4px;
+          --animation: circle-11;
+        }
+
+        .uiverse .wrapper .circle.circle-12 {
+          --blur: 14px;
+          --x: 52px;
+          --y: 4px;
+          --animation: circle-12;
+        }
+
+        @keyframes circle-1 {
+          33% {
+            transform: translate(0px, 16px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(12px, 64px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-2 {
+          33% {
+            transform: translate(80px, -10px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(72px, -48px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-3 {
+          33% {
+            transform: translate(20px, 12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(12px, 4px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-4 {
+          33% {
+            transform: translate(76px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(112px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-5 {
+          33% {
+            transform: translate(84px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(40px, -32px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-6 {
+          33% {
+            transform: translate(28px, -16px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(76px, -56px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-7 {
+          33% {
+            transform: translate(8px, 28px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(20px, -60px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-8 {
+          33% {
+            transform: translate(32px, -4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(56px, -20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-9 {
+          33% {
+            transform: translate(20px, -12px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(80px, -8px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-10 {
+          33% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(100px, 28px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-11 {
+          33% {
+            transform: translate(4px, 4px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(68px, 20px) translateZ(0);
+          }
+        }
+
+        @keyframes circle-12 {
+          33% {
+            transform: translate(56px, 0px) translateZ(0);
+          }
+
+          66% {
+            transform: translate(60px, -32px) translateZ(0);
+          }
+        }
+        </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Referrals</h1>
+    </div>
+    <div class="info">
+        <div class="ref-info-link">
+            <div class="ref-info">
+                <p>Earn 10 $TCL for 1 friend</p>
+            </div>
+            <div class="link">
+                <p>https://t.me/coffeland_bot/coffeland</p>
+                <div class="centralize">
+                  <div>
+                    <button class="copy">
+                      <span
+                        ><svg
+                          width="12"
+                          height="12"
+                          fill="#0E418F"
+                          xmlns="http://www.w3.org/2000/svg"
+                          shape-rendering="geometricPrecision"
+                          text-rendering="geometricPrecision"
+                          image-rendering="optimizeQuality"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          viewBox="0 0 467 512.22"
+                        >
+                          <path
+                            fill-rule="nonzero"
+                            d="M131.07 372.11c.37 1 .57 2.08.57 3.2 0 1.13-.2 2.21-.57 3.21v75.91c0 10.74 4.41 20.53 11.5
+                             27.62s16.87 11.49 27.62 11.49h239.02c10.75 0 20.53-4.4 27.62-11.49s11.49-16.88 11.49-27.62V152.42c0-10.55-4.21-20.15-11.02-27.18l-.47-.43c-7.09-7.09-16.87-11.5-27.62-11.5H170.19c-10.75 0-20.53 4.41-27.62 11.5s-11.5 16.87-11.5 27.61v219.69zm-18.67 12.54H57.23c-15.82 0-30.1-6.58-40.45-17.11C6.41 356.97 0 342.4 0 326.52V57.79c0-15.86 6.5-30.3 16.97-40.78l.04-.04C27.51 6.49 41.94 0 57.79 0h243.63c15.87 0 30.3 6.51 40.77 16.98l.03.03c10.48 10.48 16.99 24.93 16.99 40.78v36.85h50c15.9 0 30.36 6.5 40.82 16.96l.54.58c10.15 10.44 16.43 24.66 16.43 40.24v302.01c0 15.9-6.5 30.36-16.96 40.82-10.47 10.47-24.93 16.97-40.83 16.97H170.19c-15.9 0-30.35-6.5-40.82-16.97-10.47-10.46-16.97-24.92-16.97-40.82v-69.78zM340.54 94.64V57.79c0-10.74-4.41-20.53-11.5-27.63-7.09-7.08-16.86-11.48-27.62-11.48H57.79c-10.78 0-20.56 4.38-27.62 11.45l-.04.04c-7.06 7.06-11.45 16.84-11.45 27.62v268.73c0 10.86 4.34 20.79 11.38 27.97 6.95 7.07 16.54 11.49 27.17 11.49h55.17V152.42c0-15.9 6.5-30.35 16.97-40.82 10.47-10.47 24.92-16.96 40.82-16.96h170.35z"
+                          ></path>
+                        </svg>
+                        Copy link</span
+                      >
+                      <span>Copied</span>
+                    </button>
+                    <div>
+                      <div class="description">
+                        <p></p>
+                        <div>
+                          <div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card"></div>
+    </div>
+    <div class="reward">
+        <div class="ref-header">
+            <p>Your reward:</p>
+            <p>Your friends:</p>
+        </div>
+        <div class="ref-reward">
+            <p><span>0.000</span> $TCL</p>
+            <p><span>1</span> People</p>
+        </div>
+        <div class="card-reward"></div>
+        <div class="card-reward"></div>
+    </div>
+    <div class="history">
+        <h1 class="history-header">Friends history</h1>
+        <div class="container-history">
+            <div class="records">
+                <span>No transaction record</span>
+            </div>
+        </div>
+    </div>
+    <div class="container-back">
+        <button class="uiverse" onclick="window.location.href='index.html'">
+          <div class="wrapper">
+            <span>BACK</span>
+            <div class="circle circle-12"></div>
+            <div class="circle circle-11"></div>
+            <div class="circle circle-10"></div>
+            <div class="circle circle-9"></div>
+            <div class="circle circle-8"></div>
+            <div class="circle circle-7"></div>
+            <div class="circle circle-6"></div>
+            <div class="circle circle-5"></div>
+            <div class="circle circle-4"></div>
+            <div class="circle circle-3"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-1"></div>
+          </div>
+        </button>
+    </div>
+</body>
+</html>
