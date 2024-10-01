@@ -15,7 +15,7 @@
         }
         body {
           background-color: #8857a1;
-          background-image: url("static/background.jpg");
+          background-image: url("/static/background.jpg");
           background-repeat: no-repeat;
           background-position: center;
           align-items: center;
@@ -24,6 +24,69 @@
           display: flex;
           flex-direction: column;
 
+        .burger {
+          position: absolute;
+          z-index: 1;
+          width: 6.5vw;
+          height: 4vh;
+          background: transparent;
+          cursor: pointer;
+          display: block;
+          right: 6vw;
+          top: 2.5vh;
+        }
+
+        .burger input {
+          display: none;
+        }
+
+        .burger span {
+          display: block;
+          position: absolute;
+          z-index: 2;
+          height: 4px;
+          width: 100%;
+          background: black;
+          border-radius: 9px;
+          opacity: 1;
+          left: 0;
+          transform: rotate(0deg);
+          transition: .25s ease-in-out;
+        }
+
+        .burger span:nth-of-type(1) {
+          top: 0px;
+          transform-origin: left center;
+        }
+
+        .burger span:nth-of-type(2) {
+          top: 50%;
+          transform: translateY(-50%);
+          transform-origin: left center;
+        }
+
+        .burger span:nth-of-type(3) {
+          top: 100%;
+          transform-origin: left center;
+          transform: translateY(-100%);
+        }
+
+        .burger input:checked ~ span:nth-of-type(1) {
+          transform: rotate(45deg);
+          top: 0px;
+          left: 5px;
+        }
+
+        .burger input:checked ~ span:nth-of-type(2) {
+          width: 0%;
+          opacity: 0;
+        }
+
+        .burger input:checked ~ span:nth-of-type(3) {
+          transform: rotate(-45deg);
+          top: 28px;
+          left: 5px;
+        }
         .header {
           color: #fc2695;
           text-align: center;
@@ -191,9 +254,15 @@
     </style>
 </head>
 <body>
+    <label class="burger" for="burger">
+      <input type="checkbox" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
     <div class="ton-balance">
         <div class="ton">
-            <img src="static/toncoin-ton-logo.jpg">
+            <img src="/static/toncoin-ton-logo.jpg">
         </div>
         <div class="balance">
             <p><span>0.01</span></p>
@@ -230,8 +299,8 @@
     <div class="button-container">
         <button class="button-bot" onclick="window.location.href='wallet.html'">Wallet</button>
         <button class="button-bot" onclick="window.location.href='nfts.html'">NFTs</button>
-        <button class="button-bot" onclick="window.location.href='Earn.html'">Earn</button>
-        <button class="button-bot" onclick="location.href='/support'">Referrals</button>
+        <button class="button-bot" onclick="window.location.href='earn.html'">Earn</button>
+        <button class="button-bot" onclick="window.location.href='referals.html'">Referrals</button>
     </div>
 
 </body>
