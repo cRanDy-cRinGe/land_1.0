@@ -39,7 +39,9 @@
           position: absolute;
           top: 18vh;
           display: flex;
-          justify-content: center;
+          justify-content: space-around;
+          direction-flex: column;
+          align-items: center;
 
         }
         .ref-info-link {
@@ -61,15 +63,15 @@
         .link {
           background: rgba(255, 255, 255, 0.2);
           border-radius: 1.4em;
-          font-size: 0.9rem;
-          padding: 0em 3em 0em 1.4em;
+          font-size: 0.7rem;
+          padding: 0em 0em 0em 1.4em;
           letter-spacing: 0.1em;
-          width: 78vw;
+          width: 70vw;
           height: 7vh;
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          margin: 0em 0em 0em 1em;
+          justify-content: ;
+          margin: 0em 1em 0em 4em;
         }
         .ref-info {
           width: 86vw;
@@ -79,16 +81,16 @@
         }
         .copy {
           background-color: #f2f7fa;
-          width: 18vw;
+          width: 16vw;
           height: 5vh;
           border: none;
-          border-radius: 10px;
+          border-radius: 0.8em;
           font-weight: 600;
           cursor: pointer;
           overflow: hidden;
           transition-duration: 700ms;
           white-space: nowrap;
-          margin-left: 3.8em;
+          margin-right: em;
         }
 
         .copy span:first-child {
@@ -276,18 +278,36 @@
 
         }
         .ref-reward {
-          background: ;
+          background: rgba(255, 255, 255, 0.0);
           position: absolute;
           z-index: 2;
           display: flex;
-          justify-content: space-between;
-          width: 67vw;
-          left: 12vw;
-          gap: ;
+          justify-content: space-around;
+          align-items: center;
+          width: 42vw;
+          height: 14vh;
+          left: ;
+          gap: 6em;
           color: white;
           font-size: 1rem;
           font-family: Archivo black;
-          padding: 3.8em 0em;
+          padding: 1em 0em;
+        }
+        .ref-reward2 {
+          background: rgba(255, 255, 255, 0.0);
+          position: absolute;
+          z-index: 2;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 42.5vw;
+          height: 14vh;
+          left: 51vw;
+          gap: 6em;
+          color: white;
+          font-size: 1rem;
+          font-family: Archivo black;
+          padding: 1em 0em;
         }
         .history {
           background:;
@@ -354,7 +374,7 @@
           display: table;
           border-radius: 24px;
           padding: 0;
-          margin: 0em 0em 0.4em 0em ;
+          margin: 0em 0em 0.6em 0em ;
           text-align: center;
           font-weight: 600;
           font-size: 1.1rem;
@@ -678,6 +698,8 @@
         </div>
         <div class="ref-reward">
             <p><span>0.000</span> $TCL</p>
+        </div>
+        <div class="ref-reward2">
             <p><span>1</span> People</p>
         </div>
         <div class="card-reward"></div>
