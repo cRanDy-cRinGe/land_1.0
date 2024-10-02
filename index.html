@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
           margin: 0;
-          padding; 0;
+          padding: 0;
         }
         body {
           background-color: #8857a1;
@@ -24,36 +24,137 @@
           display: flex;
           flex-direction: column;
         }
+
+        .settings {
+            position: absolute;
+            display: inline-block;
+            right: 3vw;
+            top: 1.6vh;
+            width: 7vw;
+            height: 6vh;
+
+        }
+
         .filter {
-          position: absolute;
-          z-index: 1;
-          right: 7vw;
-          top: 1.6vh;
-          width: 7vw;
-          height: 6vh;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid rgba(0, 0, 0, 0.192);
-          cursor: pointer;
-          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
-          transition: all 0.3s;
-          box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            z-index: 1;
+            right: 1vw;
+            width: 7vw;
+            height: 6vh;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.192);
+            cursor: pointer;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
+            transition: all 0.3s;
+            box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
         }
 
         .filter svg {
-          height: 2.8vh;
-          fill: rgb(77, 77, 77);
-          transition: all 0.3s;
+            height: 2.8vh;
+            fill: rgb(77, 77, 77);
+            transition: all 0.3s;
         }
         .filter:hover {
-          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
-          background-color: rgb(59, 59, 59);
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
+            background-color: rgb(59, 59, 59);
         }
         .filter:hover svg {
-          fill: white;
+            fill: white;
         }
+
+        .popup {
+            position: absolute;
+            z-index: 2;
+            top: 7vh;
+            right: 5vw;
+            background: #333333;
+            padding: 1em;
+            border-radius: 1em;
+            width: 30vw;
+            height: 30vh;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hidden {
+          display: none;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2vh 4vw;
+            border: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10rem;
+            transition: all 0.02s;
+            font-weight: bold;
+            cursor: pointer;
+            color: rgb(37, 37, 37);
+            z-index: 0;
+            box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+            margin: 2vh;
+        }
+
+        .button:hover {
+            background: rgb(193, 228, 248);
+            color: rgb(33, 0, 85);
+        }
+
+        .button:active {
+            transform: scale(0.97);
+        }
+
+        .hoverEffect {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hoverEffect div {
+            background: rgb(222, 0, 75);
+            background: linear-gradient(
+                    90deg,
+                    rgba(222, 0, 75, 1) 0%,
+                    rgba(191, 70, 255, 1) 49%,
+                    rgba(0, 212, 255, 1) 100%
+            );
+            border-radius: 40rem;
+            width: 10rem;
+            height: 10rem;
+            transition: 0.4s;
+            filter: blur(20px);
+            animation: effect infinite 3s linear;
+            opacity: 0.5;
+        }
+
+        .button:hover .hoverEffect div {
+            width: 8rem;
+            height: 8rem;
+        }
+
+        @keyframes effect {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
 
         .header {
           color: #fc2695;
@@ -101,7 +202,6 @@
           height: 1.7vh;
           padding: 1em;
           padding-left: 3.4em;
-          padding-right: em;
           margin: 0.23em;
           box-shadow: 1vw 1vh 20px rgba(0, 0, 0, 0.5);
         }
@@ -170,7 +270,6 @@
           opacity: 1;
           word-spacing: 0.1em;
           flex: 1;
-          float: center;
           padding: 0.8em;
           font-size: 0.8rem;
           box-shadow: 0px 1.5vh 20px rgba(0, 0, 0, 0.5);
@@ -193,7 +292,7 @@
           bottom: 1vh;
           gap: 1em;
         }
-        .button {
+        .button-mine {
           color: white;
           background: #333333;
           border-radius: 2em;
@@ -222,20 +321,44 @@
     </style>
 </head>
 <body>
-    <button title="filter" class="filter">
-      <svg viewBox="0 0 512 512" height="2.8vh">
-        <path
-          d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0
-           32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32
-           14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64
-           0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3
-           40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7
-           0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16
-           192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7
-           73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
-        ></path>
-      </svg>
-    </button>
+    <div class="settings">
+        <button title="filter" class="filter">
+          <svg viewBox="0 0 512 512" height="1em">
+            <path
+              d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0
+               32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32
+               14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64
+               0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3
+               40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7
+               0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16
+               192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7
+               73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z"
+            ></path>
+          </svg>
+        </button>
+        <div id="popup" class="popup hidden">
+            <button class="button">
+                Voice
+                <div class="hoverEffect">
+                    <div></div>
+                </div>
+            </button>
+            <button class="button" onclick="window.location.href = 'wallet.html'">
+                Wallet
+                <div class="hoverEffect">
+                    <div></div>
+                </div>
+            </button>
+            <button class="button">
+                White papper
+                <div class="hoverEffect">
+                    <div></div>
+                </div>
+            </button>
+
+        </div>
+    </div>
+
 
     <div class="ton-balance">
         <div class="ton">
@@ -270,8 +393,8 @@
         </div>
     </div>
     <div class="mine-button-container">
-        <button class="button" onclick="location.href='/NFT.html'">Mine TEA</button>
-        <button class="button" onclick="location.href='/mine_tcl'">Mine TCL</button>
+        <button class="button-mine" onclick="location.href='/NFT.html'">Mine TEA</button>
+        <button class="button-mine" onclick="location.href='/mine_tcl'">Mine TCL</button>
     </div>
     <div class="button-container">
         <button class="button-bot" onclick="window.location.href='wallet.html'">Wallet</button>
@@ -279,6 +402,6 @@
         <button class="button-bot" onclick="window.location.href='earn.html'">Earn</button>
         <button class="button-bot" onclick="window.location.href='referals.html'">Referrals</button>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
