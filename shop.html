@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>wallet</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #333333;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        background-size: cover;
+        overflow: hidden;
+      }
+      .header {
+        background: #262626;
+        width: 100vw;
+        color: white;
+        border-radius: 0em 0em 0.6em 0.6em;
+        border-bottom: 0.1em solid #f200ff;
+        height: 13vh;
+        text-align: center;
+        font-family: Archivo Black;
+        font-size: 1.8rem;
+        text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+        box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
+      }
+      .container {
+        background: #262626;
+        width: 98vw;
+        height: 66vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 1.6em;
+        margin: 10vh 0em;
+        position: absolute;
+        top: 13vh;
+        z-index: 1;
+        overflow-y: auto;
+      }
+      .item-header {
+        font-family: Archivo Black;
+        font-size: 1.4rem;
+        color: white;
+        letter-spacing: 0.16em;
+        text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.27);;
+        margin-bottom: 0.2vh;
+        white-space: nowrap;
+        position: absolute;
+        top: 14.6vh;
+        left: 3.8vw;
+
+      }
+      .item-container {
+        display: flex;
+        justify-content: space-around;
+        border: 0.0px solid white;
+        border-radius: 2em;
+        background-color: rgba(255, 255, 255, 0.0);
+        margin: 1vh 0em;
+      }
+      .item {
+        background-color: black;
+        width: 66.4vw;
+        height: 11.4vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.8em;
+        box-shadow: 0.4vw 0.4vh 19px;
+        margin: 4vh 0em;
+      }
+
+      .item::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 68vw;
+        height: 13vh;
+        margin: 4vh 0vw;
+        background: rgb(247, 0, 255);
+        background: linear-gradient(135deg, rgb(0, 234, 255) 0%, rgb(238, 0, 255) 35%, rgb(255, 0, 221) 100%);
+        border-radius: 1.2em;
+      }
+
+      .item::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: 68vw;
+        height: 13vh;
+        margin: 4vh 0vw;
+        background: rgb(238, 0, 255);
+        background: linear-gradient(135deg, rgb(0, 247, 255) 0%, rgb(0, 208, 255) 35%, rgb(247, 0, 255) 100%);
+        border-radius: 0.6em;
+        filter: blur(10px);
+        transition: 2s;
+      }
+
+      .item:hover::after {
+        animation: cardafter 2.5s infinite forwards;
+      }
+
+      @keyframes cardafter {
+        0% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+      .buy-button {
+        width: 16vw;
+        height: 7vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0px 1em;
+        background-color: #bf00ff;
+        border-radius: 4em;
+        border: none;
+        color: white;
+        position: relative;
+        cursor: pointer;
+        font-weight: 900;
+        transition-duration: .2s;
+        background: linear-gradient(0deg, #000, #272727);
+        margin: 5.6vh 0em;
+        font-size: 1rem;
+      }
+
+      .buy-button:before, .buy-button:after {
+        content: '';
+        position: absolute;
+        left: -2px;
+        top: -2px;
+        border-radius: 4em;
+        background: linear-gradient(45deg, #ff00b7, #ff00b7
+        , #ff00fb, #ff00fb, #00d0ff, #00bbff,
+        #00bbff, #00bbff, #ff00b7, #ff00b7);
+        background-size: 400%;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        z-index: -1;
+        animation: steam 20s linear infinite;
+      }
+
+      @keyframes steam {
+        0% {
+          background-position: 0 0;
+        }
+
+        50% {
+          background-position: 400% 0;
+        }
+
+        100% {
+          background-position: 0 0;
+        }
+      }
+
+      .buy-button:after {
+        filter: blur(16px);
+      }
+      .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Archivo Black;
+        font-size: 1.5rem;
+        z-index: 1;
+        white-space: nowrap;
+      }
+      .uiverse {
+        --duration: 7s;
+        --easing: linear;
+        --c-color-1: rgba(217, 26, 255, .7);
+        /* Changed color */
+        --c-color-2: #fa66ae;
+        /* Changed color */
+        --c-color-3: #ff1a75;
+        /* Changed color */
+        --c-color-4: rgba(245, 193, 81, .7);
+        /* Changed color */
+        --c-shadow: rgba(245, 193, 81, .5);
+        /* Changed color */
+        --c-shadow-inset-top: rgba(142, 77, 196, .9);
+        /* Changed color */
+        --c-shadow-inset-bottom: rgba(215, 250, 255, .8);
+        /* Changed color */
+        --c-radial-inner: #15d2ff;
+        /* Changed color */
+        --c-radial-outer: #f80dfc;
+        /* Changed color */
+        --c-color: #fff;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none;
+        outline: none;
+        position: relative;
+        cursor: pointer;
+        border: none;
+        display: table;
+        border-radius: 24px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.02em;
+        color: var(--c-color);
+        background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
+        box-shadow: 0 0 14px var(--c-shadow);
+        font-family: Archivo Black;
+        text-shadow: 0em 0em 14px rgba(255, 255, 255, 0.6)
+      }
+
+      .uiverse:before {
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 2em;
+        box-shadow: inset 0 3px 12px var(--c-shadow-inset-top), inset 0 -3px 4px var(--c-shadow-inset-bottom);
+      }
+
+      .uiverse .wrapper {
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        overflow: hidden;
+        border-radius: 2em;
+        min-width: 132px;
+        padding: 0.7em 0;
+      }
+
+      .uiverse .wrapper span {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+      }
+
+      .uiverse .wrapper .circle {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        filter: blur(var(--blur, 8px));
+        background: var(--background, transparent);
+        transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);
+        animation: var(--animation, none) var(--duration) var(--easing) infinite;
+      }
+
+      .uiverse .wrapper .circle.circle-1, .uiverse .wrapper .circle.circle-9, .uiverse .wrapper .circle.circle-10 {
+        --background: var(--c-color-4);
+      }
+
+      .uiverse .wrapper .circle.circle-3, .uiverse .wrapper .circle.circle-4 {
+        --background: var(--c-color-2);
+        --blur: 14px;
+      }
+
+      .uiverse .wrapper .circle.circle-5, .uiverse .wrapper .circle.circle-6 {
+        --background: var(--c-color-3);
+        --blur: 16px;
+      }
+
+      .uiverse .wrapper .circle.circle-2, .uiverse .wrapper .circle.circle-7, .uiverse .wrapper .circle.circle-8, .uiverse .wrapper .circle.circle-11, .uiverse .wrapper .circle.circle-12 {
+        --background: var(--c-color-1);
+        --blur: 12px;
+      }
+
+      .uiverse .wrapper .circle.circle-1 {
+        --x: 0;
+        --y: -40px;
+        --animation: circle-1;
+      }
+
+      .uiverse .wrapper .circle.circle-2 {
+        --x: 92px;
+        --y: 8px;
+        --animation: circle-2;
+      }
+
+      .uiverse .wrapper .circle.circle-3 {
+        --x: -12px;
+        --y: -12px;
+        --animation: circle-3;
+      }
+
+      .uiverse .wrapper .circle.circle-4 {
+        --x: 80px;
+        --y: -12px;
+        --animation: circle-4;
+      }
+
+      .uiverse .wrapper .circle.circle-5 {
+        --x: 12px;
+        --y: -4px;
+        --animation: circle-5;
+      }
+
+      .uiverse .wrapper .circle.circle-6 {
+        --x: 56px;
+        --y: 16px;
+        --animation: circle-6;
+      }
+
+      .uiverse .wrapper .circle.circle-7 {
+        --x: 8px;
+        --y: 28px;
+        --animation: circle-7;
+      }
+
+      .uiverse .wrapper .circle.circle-8 {
+        --x: 28px;
+        --y: -4px;
+        --animation: circle-8;
+      }
+
+      .uiverse .wrapper .circle.circle-9 {
+        --x: 20px;
+        --y: -12px;
+        --animation: circle-9;
+      }
+
+      .uiverse .wrapper .circle.circle-10 {
+        --x: 64px;
+        --y: 16px;
+        --animation: circle-10;
+      }
+
+      .uiverse .wrapper .circle.circle-11 {
+        --x: 4px;
+        --y: 4px;
+        --animation: circle-11;
+      }
+
+      .uiverse .wrapper .circle.circle-12 {
+        --blur: 14px;
+        --x: 52px;
+        --y: 4px;
+        --animation: circle-12;
+      }
+
+      @keyframes circle-1 {
+        33% {
+          transform: translate(0px, 16px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(12px, 64px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-2 {
+        33% {
+          transform: translate(80px, -10px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(72px, -48px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-3 {
+        33% {
+          transform: translate(20px, 12px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(12px, 4px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-4 {
+        33% {
+          transform: translate(76px, -12px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(112px, -8px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-5 {
+        33% {
+          transform: translate(84px, 28px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(40px, -32px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-6 {
+        33% {
+          transform: translate(28px, -16px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(76px, -56px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-7 {
+        33% {
+          transform: translate(8px, 28px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(20px, -60px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-8 {
+        33% {
+          transform: translate(32px, -4px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(56px, -20px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-9 {
+        33% {
+          transform: translate(20px, -12px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(80px, -8px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-10 {
+        33% {
+          transform: translate(68px, 20px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(100px, 28px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-11 {
+        33% {
+          transform: translate(4px, 4px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(68px, 20px) translateZ(0);
+        }
+      }
+
+      @keyframes circle-12 {
+        33% {
+          transform: translate(56px, 0px) translateZ(0);
+        }
+
+        66% {
+          transform: translate(60px, -32px) translateZ(0);
+        }
+      }
+      .footer {
+        position: absolute;
+        bottom: 0vh;
+        background: #1f1f1f;
+        color: white;
+        cursor: pointer;
+        width: 98vw;
+        height: 10vh;
+        border: 0em solid #ffffff;
+        border-radius: 2em;
+        margin-top: 0em;
+        font-family: Archivo Black;
+        font-size: 1.8rem;
+        text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
+        box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Shop</h1>
+  </div>
+  <div class="item-header">
+    <h1>Items</h1>
+  </div>
+  <div class="container">
+    <div class="item-container">
+      <div class="item"><p class="text">batonchuk blyat</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">batonchuk blyat</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">idi naxuy</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">lox ebaniy</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">hahahahahaha</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">meni pizda</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">ya idu holovoy</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item"><p class="text">psihushkaaa :[]</p></div>
+      <button class="buy-button">Buy</button>
+    </div>
+  </div>
+  <div class="footer">
+    <button class="uiverse" onclick="window.location.href='index.html'">
+      <div class="wrapper">
+        <span>BACK</span>
+        <div class="circle circle-12"></div>
+        <div class="circle circle-11"></div>
+        <div class="circle circle-10"></div>
+        <div class="circle circle-9"></div>
+        <div class="circle circle-8"></div>
+        <div class="circle circle-7"></div>
+        <div class="circle circle-6"></div>
+        <div class="circle circle-5"></div>
+        <div class="circle circle-4"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-1"></div>
+      </div>
+    </button>
+  </div>
+</body>
+</html>
