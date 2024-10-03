@@ -192,6 +192,90 @@
           font-family: Archivo Black;
 
         }
+         .popup {
+             position: fixed;
+             top: 15.7vh;
+             left: 1vw;
+             width: 98vw;
+             height: 71.9vh;
+             border-radius: 1.67em;
+             background-color: #262626;
+             color: white;
+             text-align: left;
+             font-size: 1.2rem;
+             font-family: Archivo black;
+             display: flex;
+             align-items: center;
+             justify-content: left;
+             z-index: 100;
+             overflow-y: auto;
+
+         }
+
+         .hidden {
+             display: none;
+         }
+
+         .visible {
+             display: block;
+         }
+         .popup-text {
+             font-size: 1rem;
+             margin: 0.2em 2em;
+             text-shadow: 0.8vw 0.4vh 8px rgba(0, 0, 0, 0);
+             text-align: left;
+         }
+         .popup-header {
+             font-size: 3rem;
+             text-align: center;
+             margin: 0.2em 0em;
+             letter-spacing: 0.1em;
+         }
+         .popup-subheader {
+             margin: 1.2em 0em;
+             font-size: 1.5rem;
+             text-align: center;
+             text-shadow: 0.8vw 0.4vh 8px rgba(0, 0, 0, 0);
+         }
+         .popup-header-nft {
+             font-size: 3rem;
+             text-align: center;
+             margin: 1em 0em 0.2em 0em;
+             letter-spacing: 0.1em;
+         }
+         .popup-header-nft:after {
+             content: '';
+             width: 24vw;
+             height: 5vh;
+             position: absolute;
+             left: 35.3vw;
+             top: 58vh;
+             right: 0;
+             z-index: -1;
+             filter: blur(14px);
+             background: linear-gradient(45deg, rgba(0, 255, 225, 0.9), rgba(221, 0, 255, 0.9));
+             background-size: 200%;
+             animation: steam 10s linear infinite;
+         }
+         @keyframes steam {
+             0% {
+                 background-position: 0 0;
+             }
+
+             50% {
+                 background-position: 200% 0;
+             }
+
+             100% {
+                 background-position: 0 0;
+             }
+         }
+         .probel {
+             background: none;
+             width: 90vw;
+             height: 4vh;
+         }
+
         .uiverse {
           --duration: 7s;
           --easing: linear;
@@ -498,7 +582,7 @@
     <div class="container">
         <div class="buy-container">
             <div class="nft-img">
-                <img src="static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -509,7 +593,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -520,7 +604,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -531,7 +615,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -542,7 +626,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -553,7 +637,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -564,7 +648,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -575,7 +659,7 @@
         </div>
         <div class="buy-container">
             <div class="nft-img">
-                <img src="/static/usdt.svg">
+                <img src="">
             </div>
             <div class="nft-card">
             </div>
@@ -603,24 +687,66 @@
             <div class="circle circle-1"></div>
           </div>
         </button>
-        <button class="uiverse" ">
-          <div class="wrapper">
-            <span>INFO</span>
-            <div class="circle circle-12"></div>
-            <div class="circle circle-11"></div>
-            <div class="circle circle-10"></div>
-            <div class="circle circle-9"></div>
-            <div class="circle circle-8"></div>
-            <div class="circle circle-7"></div>
-            <div class="circle circle-6"></div>
-            <div class="circle circle-5"></div>
-            <div class="circle circle-4"></div>
-            <div class="circle circle-3"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-1"></div>
-          </div>
+        <button class="uiverse" id="toggleButton">
+            <div class="wrapper">
+                <span>INFO</span>
+                <div class="circle circle-12"></div>
+                <div class="circle circle-11"></div>
+                <div class="circle circle-10"></div>
+                <div class="circle circle-9"></div>
+                <div class="circle circle-8"></div>
+                <div class="circle circle-7"></div>
+                <div class="circle circle-6"></div>
+                <div class="circle circle-5"></div>
+                <div class="circle circle-4"></div>
+                <div class="circle circle-3"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-1"></div>
+            </div>
+            <div id="popup" class="popup hidden">
+                <div class="popup-free">
+                    <h1 class="popup-header">Free users</h1>
+
+                    <h2 class="popup-subheader">Kettle(TEA)</h2>
+                    <p class="popup-text">1. Cost: free</p>
+                    <p class="popup-text">Mining in 1 hour: 1,5 TEA</p>
+                    <h2 class="popup-subheader">Turk for Coffee(TCL)</h2>
+                    <p class="popup-text">2. Cost: 250 TEA</p>
+                    <p class="popup-text">Mining in 1 hour: 0.05 TCL</p>
+                </div>
+                <div class="popup-paid">
+                    <h1 class="popup-header-nft">NFTs</h1>
+                    <h2 class="popup-subheader">Coffee Machine(TCL)</h2>
+                    <p class="popup-text">1. Cost: 0.5 TON</p>
+                    <p class="popup-text">Income: 0.8 $TCL in 1 hr(1,5%)</p>
+                    <p class="popup-text">Payback: 15 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">2. Cost: 1 TON</p>
+                    <p class="popup-text">Income: 1,5 $TCL in 1 hr(3%)</p>
+                    <p class="popup-text">Payback: 14 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">3. Cost: 5 TON</p>
+                    <p class="popup-text">Income: 7 $TCL in 1 hr(6%)</p>
+                    <p class="popup-text">Payback: 14 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">4. Cost: 10 TON</p>
+                    <p class="popup-text">Income: 17 $TCL in 1 hr(15%)</p>
+                    <p class="popup-text">Payback: 12 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">5. Cost: 25 TON</p>
+                    <p class="popup-text">Income: 52 $TCL in 1 hr(40%)</p>
+                    <p class="popup-text">Payback: 10 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">6. Cost: 50 TON</p>
+                    <p class="popup-text">Income: 115 $TCL in 1 hr(100%)</p>
+                    <p class="popup-text">Payback: 9 day</p>
+                    <div class="probel"></div>
+                    <p class="popup-text">ALL INCOME FROM NFTs: 166%</p>
+                </div>
+
+            </div>
         </button>
     </div>
-
+    <script src="java/info.js"></script>
 </body>
 </html>
