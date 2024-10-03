@@ -242,13 +242,16 @@
              text-align: center;
              margin: 1em 0em 0.4em 0em;
              letter-spacing: 0.1em;
+
+         }
+         .nft-con {
              position: relative;
              width: 30vw;
              height: 6vh;
              left: 33vw;
              border-radius: 2em;
          }
-         .popup-header-nft:after {
+         .nft-con:after {
              content: '';
              width: 100%;
              height: 100%;
@@ -720,7 +723,9 @@
                     <p class="popup-text">Mining in 1 hour: 0.05 TCL</p>
                 </div>
                 <div class="popup-paid">
-                    <h1 class="popup-header-nft">NFTs</h1>
+                    <div class="nft-con">
+                        <h1 class="popup-header-nft">NFTs</h1>
+                    </div>
                     <h2 class="popup-subheader">Coffee Machine(TCL)</h2>
                     <p class="popup-text">1. Cost: 0.5 TON</p>
                     <p class="popup-text">Income: 0.8 $TCL in 1 hr(1,5%)</p>
@@ -752,6 +757,6 @@
             </div>
         </button>
     </div>
-    <script src="java/info.js"></script>
+    <script src="/java/info.js"></script>
 </body>
 </html>
