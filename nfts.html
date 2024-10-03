@@ -139,7 +139,7 @@
           background: linear-gradient(0deg, #000, #272727);
         }
 
-        .buy-button:before, .button:after {
+        .buy-button:before, .buy-button:after {
           content: '';
           position: absolute;
           left: -0.2em;
@@ -169,7 +169,7 @@
         }
 
         .buy-button:after {
-          filter: blur(50px);
+          filter: blur(8px);
         }
 
 
@@ -229,7 +229,7 @@
              font-size: 3rem;
              text-align: center;
              margin: 0.2em 0em;
-             letter-spacing: 0.1em;
+             letter-spacing: 0.06em;
          }
          .popup-subheader {
              margin: 1.2em 0em;
@@ -240,17 +240,20 @@
          .popup-header-nft {
              font-size: 3rem;
              text-align: center;
-             margin: 1em 0em 0.2em 0em;
+             margin: 1em 0em 0.4em 0em;
              letter-spacing: 0.1em;
+             position: relative;
+             width: 24vw;
+             height: 5vh;
+             left: 34vw;
          }
          .popup-header-nft:after {
              content: '';
-             width: 24vw;
-             height: 5vh;
+             width: 100%;
+             height: 100%;
              position: absolute;
-             top: 84.4%;
-             left: 50%;
-             transform: translate(-50%, -50%);
+             top: 50%;
+             left: 0;
              right: 0;
              z-index: -1;
              filter: blur(14px);
@@ -748,6 +751,6 @@
             </div>
         </button>
     </div>
-    <script src="java/info.js"></script>
+    <script src="/java/info.js"></script>
 </body>
 </html>
