@@ -9,7 +9,7 @@
      @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
           margin: 0;
-          padding; 0;
+          padding: 0;
         }
         body {
           background-color: #333333;
@@ -54,11 +54,9 @@
           font-size: 1.4rem;
           font-family: Archivo Black;
           line-height: 7.8vh;
-          background:;
           display: flex;
           justify-content: space-between;
           flex-direction: column;
-          align-items: left;
           margin: 0.38em 0em;
         }
         .Btn {
@@ -109,7 +107,7 @@
           background: rgba(255, 255, 255, 0.2);
           border-radius: 1.4em;
           font-size: 0.7rem;
-          padding: 0em 0em 0em em;
+          padding: 0em 0em 0em 0em;
           letter-spacing: 0.1em;
           width: 86vw;
           height: 7vh;
@@ -133,7 +131,6 @@
           align-items: center;
           justify-content: center;
           gap: 1em;
-          padding: 0px em;
           background-color: red;
           border-radius: 1em;
           border: none;
@@ -252,7 +249,7 @@
 
         }
         .ref-reward {
-          background:;
+
           position: absolute;
           z-index: 2;
           display: flex;
@@ -281,7 +278,6 @@
           padding: 1em 0em;
         }
         .history {
-          background:;
           width: 92vw;
           position: absolute;
           z-index: 1;
@@ -291,13 +287,14 @@
           flex-direction: column;
         }
         .history-header {
-          font-family: Archivo Black;
-          font-size: 2rem;
-          color: white;
-          letter-spacing: 0.1em;
-          text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.4);
-          margin-left: 2vw;
-          margin-bottom: 1vh;
+            font-family: Archivo Black;
+            font-size: 2rem;
+            color: white;
+            letter-spacing: 0.04em;
+            text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.27);
+            margin-left: 2vw;
+            margin-bottom: 1vh;
+            white-space: nowrap;
 
         }
         .container-history {
@@ -312,6 +309,25 @@
           font-family: Archivo Black;
           font-size: 1.4rem;
           text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.6);
+        }
+        .footer {
+            position: absolute;
+            bottom: -2vh;
+            background: #1f1f1f;
+            color: white;
+            cursor: pointer;
+            width: 98vw;
+            height: 10vh;
+            border: 0em solid #ffffff;
+            border-radius: 2em;
+            margin-top: 0em;
+            font-family: Archivo Black;
+            font-size: 1.8rem;
+            text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
+            box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
 
         .uiverse {
@@ -350,7 +366,7 @@
           font-weight: 600;
           font-size: 1.1rem;
           letter-spacing: 0.02em;
-          line-height: ;
+
           color: var(--c-color);
           background: radial-gradient(circle, var(--c-radial-inner), var(--c-radial-outer) 80%);
           box-shadow: 0 0 14px var(--c-shadow);
@@ -621,7 +637,7 @@
                 <p>Earn 10 $TCL for 1 friend</p>
             </div>
             <div class="link">
-                <p>https://t.me/coffeland_bot/coffeland</p>
+                <p class="LinkToCopy">https://t.me/coffeland_bot/coffeland</p>
                 <button class="Btn">
                   <span class="text">Copy</span>
                   <span class="svgIcon">
@@ -656,7 +672,7 @@
             </div>
         </div>
     </div>
-    <div class="container-back">
+    <div class="footer">
         <button class="uiverse" onclick="window.location.href='index.html'">
           <div class="wrapper">
             <span>BACK</span>
@@ -675,5 +691,6 @@
           </div>
         </button>
     </div>
+    <script src="/java/copy.js"></script>
 </body>
 </html>
