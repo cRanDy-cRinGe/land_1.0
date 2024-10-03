@@ -15,7 +15,7 @@
         }
         body {
           background-color: #8857a1;
-          background-image: url("static/background.jpg");
+          background-image: url("/static/background.jpg");
           background-repeat: no-repeat;
           background-position: center;
           align-items: center;
@@ -75,7 +75,7 @@
             border-radius: 1em;
             width: 30vw;
             height: 30vh;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow:  2vw 2vh 26px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
         }
@@ -97,8 +97,8 @@
             cursor: pointer;
             color: rgb(37, 37, 37);
             z-index: 0;
-            box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
             margin: 2vh;
+            box-shadow: 0.6vh 0.6vw 14px rgb(0, 0, 0);
         }
 
         .button:hover {
@@ -308,7 +308,7 @@
         .button-bot {
           color: white;
           background: #333333;
-          border-radius: 2em;
+          border-radius: 1.8em;
           border: none;
           cursor: pointer;
           height: 7vh;
@@ -349,7 +349,7 @@
                     <div></div>
                 </div>
             </button>
-            <button class="button">
+            <button class="button" onclick="window.location.href = 'whitepapper.html'">
                 White papper
                 <div class="hoverEffect">
                     <div></div>
@@ -362,7 +362,7 @@
 
     <div class="ton-balance">
         <div class="ton">
-            <img src="static/toncoin-ton-logo.jpg">
+            <img src="/static/toncoin-ton-logo.jpg">
         </div>
         <div class="balance">
             <p><span>0.01</span></p>
@@ -397,11 +397,11 @@
         <button class="button-mine" onclick="location.href='/mine_tcl'">Mine TCL</button>
     </div>
     <div class="button-container">
-        <button class="button-bot" onclick="window.location.href='wallet.html'">Wallet</button>
+        <button class="button-bot" onclick="window.location.href='shop.html'">Shop</button>
         <button class="button-bot" onclick="window.location.href='nfts.html'">NFTs</button>
         <button class="button-bot" onclick="window.location.href='earn.html'">Earn</button>
         <button class="button-bot" onclick="window.location.href='referals.html'">Referrals</button>
     </div>
-    <script src="script.js"></script>
+    <script src="/java/script.js"></script>
 </body>
 </html>
