@@ -23,41 +23,42 @@
           overflow: hidden;
         }
         .header {
-          background: #262626;
-          width: 100vw;
-          color: white;
-          border-radius: 0em 0em 0.6em 0.6em;
-          border-bottom: 0.1em solid #f200ff;
-          height: 13vh;
-          text-align: center;
-          font-family: Archivo Black;
-          font-size: 1.8rem;
-          text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
-          box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
+            background: #262626;
+            width: 100vw;
+            color: white;
+            border-radius: 0em 0em 0.6em 0.6em;
+            border-bottom: 0.1em solid #f200ff;
+            height: 13vh;
+            padding-top: 1.8vh;
+            text-align: center;
+            font-family: Archivo Black;
+            font-size: 1.8rem;
+            text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+            box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
         }
         .info {
-          width: 93vw;
-          position: absolute;
-          top: 18vh;
-          display: flex;
-          justify-content: space-between;
-          direction-flex: column;
-          align-items: center;
-
+            width: 93vw;
+            position: absolute;
+            top: 18vh;
+            display: flex;
+            justify-content: space-between;
+            direction-flex: column;
+            align-items: center;
         }
         .ref-info-link {
-          position: absolute;
-          left: 1vw;
-          width: 78vw;
-          z-index: 50;
-          color: white;
-          font-size: 1.4rem;
-          font-family: Archivo Black;
-          line-height: 7.8vh;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
-          margin: 0.38em 0em;
+            position: absolute;
+            left: 1vw;
+            width: 78vw;
+            z-index: 50;
+            color: white;
+            font-size: 1.4rem;
+            font-family: Archivo Black;
+            line-height: 7.8vh;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin: 0.38em 0em;
+            text-shadow:  1vw 0.6vh 10px rgba(0, 0, 0, 0.7);
         }
         .Btn {
           background: none;
@@ -104,26 +105,28 @@
           background-color: rgb(0, 105, 105);
         }
         .link {
-          background: rgba(255, 255, 255, 0.2);
-          border-radius: 1.4em;
-          font-size: 0.7rem;
-          padding: 0em 0em 0em 0em;
-          letter-spacing: 0.1em;
-          width: 86vw;
-          height: 7vh;
-          display: flex;
-          align-items: center;
-          justify-content: space-around ;
-          margin: 0em 1em 0em 1em;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 1.4em;
+            font-size: 0.7rem;
+            padding: 0em 0em 0em 0em;
+            letter-spacing: 0.1em;
+            width: 86vw;
+            height: 7vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around ;
+            margin: 0em 1em 0em 1em;
+            box-shadow:  1vw 0.4vh 12px rgba(0, 0, 0, 0.6);
+
         }
         .ref-info {
-          width: 86vw;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+            width: 91vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* From Uiverse.io by JaydipPrajapati1910 */
+        /*main card*/
         .card {
           width: 93vw;
           height: 18vh;
@@ -131,30 +134,29 @@
           align-items: center;
           justify-content: center;
           gap: 1em;
-          background-color: red;
-          border-radius: 1em;
-          border: none;
+          border-radius: 1em 1em 0em 0em;
+          border-bottom: 0.06em  solid rgba(255, 255, 255, 0.09);
           color: white;
           position: relative;
           cursor: pointer;
           font-weight: 900;
           transition-duration: .2s;
-          background: linear-gradient(0deg, #000, #272727);
+          background: linear-gradient(0deg, #262626, #2e2e2e);
         }
 
         .card:before, .card:after {
-          content: '';
-          position: absolute;
-          left: -2px;
-          top: -2px;
-          border-radius: 1em;
-          background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
-                #fa0cea, #b907f5,#b907f5, #7300ff);
-          background-size: 400%;
-          width: 94vw;
-          height: 18.5vh;
-          z-index: -1;
-          animation: animation 20s linear infinite;
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            border-radius: 1em;
+            background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
+                    #fa0cea, #b907f5,#b907f5, #7300ff);
+            background-size: 400%;
+            width: calc(100% + 4px);
+            height: 24vh;
+            z-index: -1;
+            animation: animation 20s linear infinite;
         }
 
         @keyframes animation {
@@ -174,46 +176,45 @@
           filter: blur(16px);
         }
         .reward {
-          width: 93vw;
-          height: 18vh;
-          display: flex;
-          justify-content: space-between;
-          position: absolute;
-          z-index: 1;
-          top: 40vh;
-          gap: 4em;
+            width: 93vw;
+            height: 18vh;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            z-index: 1;
+            top: 36.4vh;
+
 
         }
-        .card-reward {
-          width: 38vw;
-          height: 14vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 1em;
-          padding: 0px 1em;
-          background-color: red;
-          border-radius: 1em;
-          border: none;
-          color: white;
-          position: relative;
-          cursor: pointer;
-          font-weight: 900;
-          transition-duration: .2s;
-          background: linear-gradient(0deg, #000, #272727);
+        .card-reward-left {
+            width: 46.4vw;
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 1em;
+            border-radius: 0em 0em 0em 1em;
+            border-top: 0em solid #d000ff;
+            border-right: 0.1vw solid rgba(0, 0, 0, 0.30);
+            color: white;
+            position: relative;
+            cursor: pointer;
+            font-weight: 900;
+            transition-duration: .2s;
+            background: linear-gradient(90deg, #262626 0%, #262626 90%, #1e1e1e 100%);
         }
 
-        .card-reward:before, .card-reward:after {
+        .card-reward-left:before, .card-reward-left:after {
           content: '';
           position: absolute;
-          left: -2px;
-          top: -2px;
+          left: -0.3vw;
+          top: 10px;
           border-radius: 1em;
           background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
                 #fa0cea, #b907f5,#b907f5, #7300ff);
           background-size: 400%;
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
+          width: 50vw;
+          height: calc(100% - 8px);
           z-index: -1;
           animation: steam 20s linear infinite;
         }
@@ -232,50 +233,99 @@
           }
         }
 
-        .card-reward:after {
+        .card-reward-left:after {
           filter: blur(10px);
         }
+        .card-reward-right {
+            width: 46.4vw;
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: em;
+            padding: 0px 1em;
+            border-radius: 0em 0em 1em 0em;
+            border-top: 0.0em solid #d000ff;
+            border-left: 0.1vw solid rgba(0, 0, 0, 0.30);
+            color: white;
+            position: relative;
+            cursor: pointer;
+            font-weight: 900;
+            transition-duration: .2s;
+            background: linear-gradient(270deg, #262626 0%, #262626 90%, #1e1e1e 100%);
+        }
+
+        .card-reward-right:before, .card-reward-right:after {
+            content: '';
+            position: absolute;
+            right: -0.3vw;
+            top: 10px;
+            border-radius: 1em;
+            background: linear-gradient(60deg, #7300ff, #be0cfa, #be0cfa, #b30cfa, #b30cfa, #fa0cea,
+            #fa0cea, #b907f5,#b907f5, #7300ff);
+            background-size: 400%;
+            width: 50vw;
+            height: calc(100% - 8px);
+            z-index: -1;
+            animation: steam 20s linear infinite;
+        }
+
+        @keyframes steam {
+            0% {
+                background-position: 0 0;
+            }
+
+            50% {
+                 background-position: 200% 0;
+            }
+
+            100% {
+                 background-position: 0 0;
+             }
+        }
+
+        .card-reward-right:after {
+             filter: blur(10px);
+        }
         .ref-header {
-          position: absolute;
-          z-index: 2;
-          display: flex;
-          justify-content: space-around;
-          width: 92vw;
-          gap: 4em;
-          color: white;
-          font-size: 1.1rem;
-          font-family: Archivo black;
-          padding: 1em 0em;
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            width: 92vw;
+            gap: 4em;
+            color: white;
+            font-size: 1.1rem;
+            font-family: Archivo black;
+            padding: 1em 0em;
+            text-shadow:  1vw 0.6vh 10px rgba(0, 0, 0, 0.7);
 
         }
         .ref-reward {
-
-          position: absolute;
-          z-index: 2;
-          display: flex;
-          justify-content: space-around;
-          width: 91vw;
-          gap: 4em;
-          color: white;
-          font-size: 1rem;
-          font-family: Archivo black;
-          padding: 3.4em 0em;
+            position: absolute;
+            z-index: 2;
+            display: flex;
+            justify-content: space-around;
+            width: 93vw;
+            gap: 4em;
+            color: white;
+            font-size: 1rem;
+            font-family: Archivo black;
+            padding: 3.4em 0em;
         }
-        .ref-reward2 {
-          background: rgba(255, 255, 255, 0.0);
-          position: absolute;
-          z-index: 2;
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          width: 42.5vw;
-          height: 14vh;
-          left: 51vw;
-          gap: 6em;
-          color: white;
-          font-size: 1rem;
-          font-family: Archivo black;
-          padding: 1em 0em;
+        .text-reward {
+            background: rgba(255, 255, 255, 0.2);
+            width: 34vw;
+            height: 6vh;
+            border-radius: 2em;
+            white-space: nowrap;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:  1vw 0.4vh 12px rgba(0, 0, 0, 0.6);
+
+
         }
         .history {
           width: 92vw;
@@ -283,7 +333,7 @@
           z-index: 1;
           display: flex;
           justify-content: left;
-          top: 56vh;
+          top: 53vh;
           flex-direction: column;
         }
         .history-header {
@@ -312,8 +362,8 @@
         }
         .footer {
             position: absolute;
-            bottom: -2vh;
-            background: #1f1f1f;
+            bottom: 0vh;
+            background: none;
             color: white;
             cursor: pointer;
             width: 98vw;
@@ -324,7 +374,6 @@
             font-family: Archivo Black;
             font-size: 1.8rem;
             text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
-            box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -658,11 +707,11 @@
             <p>Your friends:</p>
         </div>
         <div class="ref-reward">
-            <p><span>0.000</span> $TCL</p>
-            <p><span>0</span> People</p>
+            <p class="text-reward"><span>0.000</span> $TCL</p>
+            <p class="text-reward"><span>0</span> People</p>
         </div>
-        <div class="card-reward"></div>
-        <div class="card-reward"></div>
+        <div class="card-reward-left"></div>
+        <div class="card-reward-right"></div>
     </div>
     <div class="history">
         <h1 class="history-header">Friends history</h1>
@@ -691,6 +740,6 @@
           </div>
         </button>
     </div>
-    <script src="java/copy.js"></script>
+    <script src="/java/copy.js"></script>
 </body>
 </html>
