@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    console.log(TonConnect); // Це повинно вивести визначення TonConnect, якщо SDK завантажено успішно
     // Тепер TonConnect повинен бути доступний
     const tonConnect = new TonConnect({ manifestUrl: 'https://crandy-cringe.github.io/land_1.0/manifest.json' });
 
