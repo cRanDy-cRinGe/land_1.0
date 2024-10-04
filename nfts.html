@@ -248,17 +248,24 @@
 
          }
          .nft-con {
-             background: rgba(38, 38, 38, 0.95);
              position: relative;
-             width: 32vw;
+             width: 30vw;
              height: 7vh;
-             left: 31vw;
+             left: 33vw;
              border-radius: 1.3em;
              display: flex;
              align-items: center;
              justify-content: center;
              flex-direction: row;
              margin-top: 3em;
+         }
+         @media (max-width: 430px) {
+             .nft-con:after {
+                 filter: blur(3px);
+             }
+             .nft-con {
+                 width: 40vw;
+             }
          }
          .nft-con:after {
              content: '';
