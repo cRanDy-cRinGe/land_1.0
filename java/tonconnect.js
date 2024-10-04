@@ -1,5 +1,5 @@
 // Підключаємо TonConnect через CDN
-const tonConnect = new TonConnect({ manifestUrl: 'https://crandy-cringe.github.io/land_1.0/' });
+const tonConnect = new TonConnect({ manifestUrl: 'https://crandy-cringe.github.io/land_1.0/manifest.json' });
 
 // Встановлення обробника на кнопку для підключення
 document.getElementById('btn').addEventListener('click', async () => {
