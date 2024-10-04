@@ -79,46 +79,82 @@
           align-items: center;
         }
         .price1 {
-          bottom: 37vh;
-          position: absolute;
-          color: white;
-          font-size: 1.2rem;
-          font-family: Archivo Black;
-          z-index: 20;
+            bottom: 37vh;
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            font-family: Archivo Black;
+            z-index: 20;
+            text-shadow: 0.5vw 0.3vh 3px rgba(0, 0, 0, 0.7);
+
         }
         .price2 {
-          bottom: -13vh;
-          position: absolute;
-          color: white;
-          font-size: 1.2rem;
-          font-family: Archivo Black;
-          z-index: 20;
+            bottom: -13vh;
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            font-family: Archivo Black;
+            z-index: 20;
+            text-shadow: 0.5vw 0.3vh 3px rgba(0, 0, 0, 0.7);
         }
         .price3 {
-          bottom: -63vh;
-          position: absolute;
-          color: white;
-          font-size: 1.2rem;
-          font-family: Archivo Black;
-          z-index: 20;
+            bottom: -63vh;
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            font-family: Archivo Black;
+            z-index: 20;
+            text-shadow: 0.5vw 0.3vh 3px rgba(0, 0, 0, 0.7);
         }
         .price4 {
-          bottom: -113vh;
-          position: absolute;
-          color: white;
-          font-size: 1.2rem;
-          font-family: Archivo Black;
-          z-index: 20;
+            bottom: -113vh;
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            font-family: Archivo Black;
+            z-index: 20;
+            text-shadow: 0.5vw 0.3vh 3px rgba(0, 0, 0, 0.7);
         }
-        .nft-card {
-          margin: 2.4vh 0.8vw;
-          width: 40vw;
-          height: 32vh;
-          border-radius: 1rem;
-          background-color: #4158D0;
-          background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-          box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+         .nft-card {
+             margin: 2.4vh 0.8vw;
+             width: 40vw;
+             height: 32vh;
+             border-radius: 1rem;
+             background-color: #4158D0;
+             background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+             box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+         }
+        .nft-card2 {
+            margin: 2.4vh 0.8vw;
+            width: 40vw;
+            height: 32vh;
+            border-radius: 1rem;
+            background-color: #4158D0;
+            background-image: linear-gradient(45deg, #4158d0 0%, #4158d0 0%,
+            #4158d0 0%, #4158d0 0%, #c850c0 46%, #c850c0 46%,
+            #c850c0 46%, #c850c0 46%, #ffcc70 100%, #ffcc70 100%,
+            #ffcc70 100%, #ffcc70 100%, #c850c0 156%, #c850c0 156%,
+            #c850c0 156%, #c850c0 156%, #4158d0 200%, #4158d0 200%,
+            #4158d0 200%, #4158d0 200%);
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            background-size: 200%;
+            animation: steam 15s linear infinite;
+
         }
+        @keyframes steam {
+              0% {
+                  background-position: 0 0;
+              }
+
+              50% {
+                  background-position: 200% 0;
+              }
+
+              100% {
+                  background-position: 0 0;
+              }
+          }
+
 
         .buy-button {
           width: 27vw;
@@ -280,6 +316,10 @@
              }
              .nft-con {
                  width: 42vw;
+             }
+             .header-con {
+                 width: 90vw;
+                 left: 5vw;
              }
          }
          .nft-con:after {
