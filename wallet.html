@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>wallet</title>
+    <title>Wallet</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
@@ -111,9 +112,19 @@
           border-radius: 2em;
           margin: 0.8em 1.2em 0.6em 1.2em;
           font-family: Archivo Black;
-          font-size: 1.2rem;
+          font-size: 1rem;
           text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
           box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0);
+        }
+        @media (max-width: 430px) {
+          .button {
+            font-size: 0.9rem;
+            white-space: nowrap;
+            border-radius: 1.2em;
+          }
+          #btn {
+            margin: 1em 0.4em;
+          }
         }
         .button-container-wallet {
           display: flex;
@@ -139,7 +150,7 @@
           text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
           box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
         }
-        .btn {
+        #btn {
           border: none;
           width: 15em;
           height: 5em;
@@ -147,7 +158,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          gap: 12px;
+          gap: 1em;
           background: #1c1a1c;
           cursor: pointer;
           transition: all 450ms ease-in-out;
@@ -165,16 +176,16 @@
           font-size: medium;
         }
 
-        .btn:hover {
+        #btn:hover {
           background: linear-gradient(0deg, #a100ff, #950083);
           transform: translateY(-2px);
         }
 
-        .btn:hover .text {
+        #btn:hover .text {
           color: white;
         }
 
-        .btn:hover .sparkle {
+        #btn:hover .sparkle {
           fill: white;
           transform: scale(1.2);
         }
@@ -529,7 +540,7 @@
       </div>
       <div class="button-container-wallet">
         <button class="button" onclick="location.href='/NFT.html'">Deposit</button>
-        <button class="btn">
+        <button id="btn">
           <svg
                   class="sparkle"
                   id="Layer_1"
@@ -555,7 +566,6 @@
 
           <span class="text">Connect</span>
         </button>
-
         <button class="button" onclick="location.href='/mine_tcl'">Withdraw</button>
       </div>
     </div>
@@ -578,5 +588,6 @@
         </div>
       </button>
     </div>
+  <script src="java/tonconnect.js"></script>
   </body>
 </html>
