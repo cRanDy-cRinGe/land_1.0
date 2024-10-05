@@ -1,45 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Лог для перевірки доступності TonConnect
-    console.log('Перевірка доступності TonConnect:', typeof TonConnect); // Лог для перевірки доступності
+    console.log('Перевірка доступності TonConnect:', typeof TonConnect);
 
-    // Перевірка доступності TonConnect
     if (typeof TonConnect === 'undefined') {
         console.error('TonConnect SDK не завантажено');
-        return; // Вихід, якщо SDK не завантажено
+        return;
     }
 
-    // Ініціалізація TonConnect через 2 секунди
-    setTimeout(() => {
-        const tonConnect = new TonConnect({ 
-            manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json' 
-        });
+    const tonConnect = new TonConnect({
+        manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json'
+    });
 
-        // Обробник події для кнопки підключення
-        document.getElementById('btn').addEventListener('click', async () => {
-            try {
-                const wallets = await tonConnect.getWallets();
-                console.log('Доступні гаманці:', wallets);
+    document.getElementById('btn').addEventListener('click', async () => {
+        try {
+            const wallets = await tonConnect.getWallets();
+            console.log('Доступні гаманці:', wallets);
 
-                const tonkeeper = wallets.find(wallet => wallet.name === 'Tonkeeper');
+            const tonkeeper = wallets.find(wallet => wallet.name === 'Tonkeeper');
 
-                if (!tonkeeper) {
-                    throw new Error('Tonkeeper не знайдено серед доступних гаманців');
-                }
-
-                await tonConnect.connectWallet({
-                    universalLink: tonkeeper.universalLink,
-                    bridgeUrl: tonkeeper.bridgeUrl,
-                });
-
-                if (tonConnect.wallet) {
-                    const userInfo = tonConnect.wallet.account;
-                    console.log('Підключено до Tonkeeper:', userInfo);
-                } else {
-                    console.error('Підключення не вдалося');
-                }
-            } catch (error) {
-                console.error('Помилка підключення:', error.message);
+            if (!tonkeeper) {
+                throw new Error('Tonkeeper не знайдено серед доступних гаманців');
             }
-        });
-    }, 2000); // Затримка в 2000 мілісекунд (2 секунди)
+
+            await tonConnect.connectWallet({
+                universalLink: tonkeeper.universalLink,
+                bridgeUrl: tonkeeper.bridgeUrl,
+            });
+
+            if (tonConnect.wallet) {
+                const userInfo = tonConnect.wallet.account;
+                console.log('Підключено до Tonkeeper:', userInfo);
+            } else {
+                console.error('Підключення не вдалося');
+            }
+        } catch (error) {
+            console.error('Помилка підключення:', error.message);
+        }
+    });
 });
