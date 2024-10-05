@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
             const tonConnect = new TonConnect({
-                manifestUrl: 'https://your-github-username.github.io/your-github-repo/tonconnect-manifest.json'
+                manifestUrl: ''
             });
 
             document.getElementById('btn').addEventListener('click', async () => {
