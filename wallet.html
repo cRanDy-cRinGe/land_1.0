@@ -594,6 +594,14 @@
       </button>
     </div>
     <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
-    <script type="module" src="tonconnect.js"></script>
+    <script>
+      const tonConnect = new TonConnect({
+        manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json'
+      });
+      
+      document.getElementById('btn').addEventListener('click', async () => {
+        await tonConnect.connectWallet();
+      });
+    </script>
   </body>
 </html>
