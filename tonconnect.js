@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
             const tonConnect = new TonConnect({
-                manifestUrl: ''
+                manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json'
             });
 
             document.getElementById('btn').addEventListener('click', async () => {
