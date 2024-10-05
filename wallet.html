@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Wallet</title>
+    <link rel="manifest" href="tonconnect-manifest.json">
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
@@ -595,12 +596,13 @@
     </div>
     <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
     <script>
-      const tonConnect = new TonConnect({
-        manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json'
-      });
-      
-      document.getElementById('btn').addEventListener('click', async () => {
-        await tonConnect.connectWallet();
+      // Переконайтеся, що TonConnect визначено після завантаження скрипта
+      window.addEventListener('load', () => {
+        const tonConnect = new TonConnect();
+
+        document.getElementById('btn').addEventListener('click', async () => {
+          await tonConnect.connectWallet();
+        });
       });
     </script>
   </body>
