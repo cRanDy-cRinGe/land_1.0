@@ -124,6 +124,14 @@
             border-radius: 1.8em;
             margin: 0.8em 0.1em 0.6em 0.1em;
           }
+          #btn {
+            margin: 1.2em 0em 0.4em 0em;
+            height: 8vh;
+            width: 30vw;
+            border-radius: 2em;
+            gap: 0.6em;
+            font-size: 0.9rem;
+          }
         }
         .button-container-wallet {
           display: flex;
@@ -548,6 +556,15 @@
         } catch (e) {
             console.log(e);
         }
+        // Після підключення гаманця збережіть його стан у localStorage
+        tonConnect.onStatusChange((wallet) => {
+          if (wallet) {
+            localStorage.setItem('tonWallet', JSON.stringify(wallet));
+          } else {
+            localStorage.removeItem('tonWallet');
+          }
+        });
+      }
     </script>
   </body>
 </html>
