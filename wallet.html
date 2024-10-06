@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Wallet</title>
     <link rel="manifest" href="tonconnect-manifest.json">
-      <style>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
           margin: 0;
@@ -157,43 +158,8 @@
           box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
         }
         #btn {
+          background: none;
           border: none;
-          width: 26vw;
-          height: 10vh;
-          border-radius: 3em;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 1em;
-          background: #1c1a1c;
-          cursor: pointer;
-          transition: all 450ms ease-in-out;
-          margin: 0.6em 1.2em 0.6em 1.2em;
-        }
-
-        .sparkle {
-          fill: #aaaaaa;
-          transition: all 800ms ease;
-        }
-
-        .text {
-          font-weight: 600;
-          color: #aaaaaa;
-          font-size: 1rem;
-        }
-
-        #btn:hover {
-          background: linear-gradient(0deg, #a100ff, #950083);
-          transform: translateY(-2px);
-        }
-
-        #btn:hover .text {
-          color: white;
-        }
-
-        #btn:hover .sparkle {
-          fill: white;
-          transform: scale(1.2);
         }
 
         .uiverse {
@@ -499,7 +465,6 @@
             transform: translate(60px, -32px) translateZ(0);
           }
         }
-
       </style>
   </head>
   <body>
@@ -545,33 +510,8 @@
         </div>
       </div>
       <div class="button-container-wallet">
-        <button class="button" onclick="location.href='/NFT.html'">Deposit</button>
-        <button id="btn">
-          <svg
-                  class="sparkle"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  fill="#FFFFFF"
-                  width="24"
-                  height="24"
-          >
-            <path
-                    clip-rule="evenodd"
-                    d="M12 14a3 3 0 0 1 3-3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Zm3-1a1 1 0 1 0 0 2h4v-2h-4Z"
-                    fill-rule="evenodd"
-            ></path>
-            <path
-                    clip-rule="evenodd"
-                    d="M12.293 3.293a1 1 0 0 1 1.414 0L16.414 6h-2.828l-1.293-1.293a1 1 0 0 1 0-1.414ZM12.414 6 9.707
-                     3.293a1 1 0 0 0-1.414 0L5.586 6h6.828ZM4.586 7l-.056.055A2 2 0 0 0 3 9v10a2 2 0 0 0 2 2h12a2
-                      2 0 0 0 2-2h-4a5 5 0 0 1 0-10h4a2 2 0 0 0-1.53-1.945L17.414 7H4.586Z"
-                    fill-rule="evenodd"
-            ></path>
-          </svg>
-
-          <span class="text">Connect</span>
-        </button>
+        <button class="button" onclick="transaction()">Deposit</button>
+        <button id="btn"></button>
         <button class="button" onclick="location.href='/mine_tcl'">Withdraw</button>
       </div>
     </div>
@@ -594,16 +534,28 @@
         </div>
       </button>
     </div>
-    <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
     <script>
-      // Переконайтеся, що TonConnect визначено після завантаження скрипта
-      window.addEventListener('load', () => {
-        const tonConnect = new TonConnect();
-
-        document.getElementById('btn').addEventListener('click', async () => {
-          await tonConnect.connectWallet();
-        });
+      const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json',
+        buttonRootId: 'btn'
       });
+
+      async function transaction() {
+        const transaction = {
+          validUntil: Math.round(Date.now() / 1000) + 10,
+          messages: [
+            {
+              address: "UQCwKTKDsUO8H98OEMCO-8jYGSghMHT_26IcIcnGzqabgl7C",
+              amount: "100000000"
+            }
+          ]
+        };
+
+        try {
+          await tonConnectUI.sendTransaction(transaction);
+        } catch (e) {
+            console.log(e);
+        }
     </script>
   </body>
 </html>
