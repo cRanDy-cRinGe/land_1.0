@@ -2,15 +2,20 @@
 <html lang="uk">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Wallet</title>
-    <link rel="manifest" href="tonconnect-manifest.json">
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <script src="libs/tonconnect-ui.min.js"></script>
+    <script src="libs/tonweb.min.js"></script>
+    <script src="libs/ton-access.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
           margin: 0;
           padding: 0;
+          -webkit-user-select: none; /* Safari */
+          -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Стандартний */
         }
         body {
           background-color: #333333;
@@ -117,6 +122,20 @@
           text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
           box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0);
         }
+        #send {
+          background: #1f1f1f;
+          color: white;
+          cursor: pointer;
+          width: 26vw;
+          height: 8vh;
+          border: 0em solid #ffffff;
+          border-radius: 2em;
+          margin: 0.8em 1.2em 0.6em 1.2em;
+          font-family: Archivo Black;
+          font-size: 1rem;
+          text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
+          box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0);
+        }
         @media (max-width: 430px) {
           .button {
             font-size: 0.9rem;
@@ -124,6 +143,12 @@
             border-radius: 1.8em;
             margin: 0.8em 0.1em 0.6em 0.1em;
           }
+          #send {
+          font-size: 0.9rem;
+          white-space: nowrap;
+          border-radius: 1.8em;
+          margin: 0.8em 0.1em 0.6em 0.1em;
+        }
           #btn {
             margin: 1.2em 0em 0.4em 0em;
             height: 8vh;
@@ -465,6 +490,14 @@
             transform: translate(60px, -32px) translateZ(0);
           }
         }
+        #walletAddress {
+          position: absolute;
+          left: 35vw;
+          top: 40vh;
+          font-size: 1.2rem;
+          color: transparent;
+
+        }
       </style>
   </head>
   <body>
@@ -510,7 +543,7 @@
         </div>
       </div>
       <div class="button-container-wallet">
-        <button class="button" onclick="transaction()">Deposit</button>
+        <button id="send">Deposit</button>
         <button id="btn"></button>
         <button class="button" onclick="location.href='/mine_tcl'">Withdraw</button>
       </div>
@@ -534,37 +567,8 @@
         </div>
       </button>
     </div>
-    <script>
-      const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-        manifestUrl: 'https://crandy-cringe.github.io/land_1.0/tonconnect-manifest.json',
-        buttonRootId: 'btn'
-      });
-
-      async function transaction() {
-        const transaction = {
-          validUntil: Math.round(Date.now() / 1000) + 10,
-          messages: [
-            {
-              address: "UQCwKTKDsUO8H98OEMCO-8jYGSghMHT_26IcIcnGzqabgl7C",
-              amount: "100000000"
-            }
-          ]
-        };
-
-        try {
-          await tonConnectUI.sendTransaction(transaction);
-        } catch (e) {
-            console.log(e);
-        }
-        // Після підключення гаманця збережіть його стан у localStorage
-        tonConnect.onStatusChange((wallet) => {
-          if (wallet) {
-            localStorage.setItem('tonWallet', JSON.stringify(wallet));
-          } else {
-            localStorage.removeItem('tonWallet');
-          }
-        });
-      }
-    </script>
+    <p id="walletAddress">Wallet Address: </p>
+    <script src="java/tonconnect-wallet.js"></script>
+    <script src="java/Counter.js"></script>
   </body>
 </html>
