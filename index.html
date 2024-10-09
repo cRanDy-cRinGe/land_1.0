@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Coffe Land</title>
+    <script src="/libs/tonconnect-ui.min.js"></script>
+    <script src="/libs/tonweb.min.js"></script>
+    <script src="/libs/ton-access.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
         * {
-          margin: 0;
-          padding: 0;
+            margin: 0;
+            padding: 0;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Стандартний */
         }
         body {
           background-color: #8857a1;
-          background-image: url("static/background.jpg");
+          background-image: url("/static/background.jpg");
           background-repeat: no-repeat;
           background-position: center;
           align-items: center;
@@ -83,7 +88,7 @@
         .hidden {
           display: none;
         }
-        .button {
+        #button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -101,12 +106,12 @@
             box-shadow: 0.6vh 0.6vw 14px rgb(0, 0, 0);
         }
 
-        .button:hover {
+        #button:hover {
             background: rgb(193, 228, 248);
             color: rgb(33, 0, 85);
         }
 
-        .button:active {
+        #button:active {
             transform: scale(0.97);
         }
 
@@ -139,7 +144,7 @@
             opacity: 0.5;
         }
 
-        .button:hover .hoverEffect div {
+        #button:hover .hoverEffect div {
             width: 8rem;
             height: 8rem;
         }
@@ -153,7 +158,76 @@
                 transform: rotate(360deg);
             }
         }
+        .button-papper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2vh 4vw;
+            border: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10rem;
+            transition: all 0.02s;
+            font-weight: bold;
+            cursor: pointer;
+            color: rgb(37, 37, 37);
+            z-index: 0;
+            margin: 2vh;
+            box-shadow: 0.6vh 0.6vw 14px rgb(0, 0, 0);
+        }
 
+        .button-papper:hover {
+            background: rgb(193, 228, 248);
+            color: rgb(33, 0, 85);
+        }
+
+        .button-papper:active {
+            transform: scale(0.97);
+        }
+
+        .hoverEffect {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hoverEffect div {
+            background: rgb(222, 0, 75);
+            background: linear-gradient(
+                    90deg,
+                    rgba(222, 0, 75, 1) 0%,
+                    rgba(191, 70, 255, 1) 49%,
+                    rgba(0, 212, 255, 1) 100%
+            );
+            border-radius: 40rem;
+            width: 10rem;
+            height: 10rem;
+            transition: 0.4s;
+            filter: blur(20px);
+            animation: effect infinite 3s linear;
+            opacity: 0.5;
+        }
+
+        .button-papper:hover .hoverEffect div {
+            width: 8rem;
+            height: 8rem;
+        }
+
+        @keyframes effect {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
 
         .header {
@@ -318,6 +392,14 @@
           box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
           text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
         }
+        #btn {
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2vh;
+        }
     </style>
 </head>
 <body>
@@ -337,19 +419,14 @@
           </svg>
         </button>
         <div id="popup" class="popup hidden">
-            <button class="button">
-                Voice
-                <div class="hoverEffect">
-                    <div></div>
-                </div>
-            </button>
-            <button class="button" onclick="window.location.href = 'wallet.html'">
+            <button id="btn"></button>
+            <button id="button">
                 Wallet
                 <div class="hoverEffect">
                     <div></div>
                 </div>
             </button>
-            <button class="button" onclick="window.location.href = 'whitepapper.html'">
+            <button class="button-papper" onclick="window.location.href = 'whitepapper.html'">
                 White papper
                 <div class="hoverEffect">
                     <div></div>
@@ -403,5 +480,7 @@
         <button class="button-bot" onclick="window.location.href='referals.html'">Referrals</button>
     </div>
     <script src="java/script.js"></script>
+    <script src="java/tonconnect-index.js"></script>
+    <script src="java/Counter.js"></script>
 </body>
 </html>
