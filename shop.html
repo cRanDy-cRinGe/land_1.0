@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>wallet</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
       * {
         margin: 0;
         padding: 0;
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Стандартний */
       }
       body {
         background-color: #333333;
@@ -34,7 +38,7 @@
         text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
         box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
         padding-top: 0.6em;
-        padding-bottom: 0em; 
+        padding-bottom: 0em;
       }
       .container {
         background: #262626;
