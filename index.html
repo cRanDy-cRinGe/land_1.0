@@ -17,17 +17,19 @@
             -moz-user-select: none; /* Firefox */
             -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Стандартний */
+
         }
         body {
-          background-color: #8857a1;
-          background-image: url("static/background.jpg");
-          background-repeat: no-repeat;
-          background-position: center;
-          align-items: center;
-          height: 100vh;
-          background-size: cover;
-          display: flex;
-          flex-direction: column;
+            background-color: #8857a1;
+            background-image: url("static/background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
 
         .settings {
@@ -242,7 +244,7 @@
           line-height: 200%;
           text-shadow: 0.2vw 1vh 10px rgba(62, 1, 74, 1);
         }
-        .ton-balance {
+        .ton-container {
           height: 6vh;
           width: 90vw;
           position: absolute;
@@ -366,7 +368,7 @@
           bottom: 1vh;
           gap: 1em;
         }
-        .button-mine {
+        #button-mine-tcl {
           color: white;
           background: #333333;
           border-radius: 2em;
@@ -379,7 +381,20 @@
           box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
           text-shadow: 0.4vw 0.5vh 4px rgba(0, 0, 0, 0.6);
         }
-        .button-bot {
+        #button-mine-tea {
+            color: white;
+            background: #333333;
+            border-radius: 2em;
+            border: none;
+            cursor: pointer;
+            height: 7.5vh;
+            width: 33vw;
+            font-size: 1rem;
+            font-family: Archivo Black;
+            box-shadow: 0vw 1vh 20px rgba(0, 0, 0, 0.5);
+            text-shadow: 0.4vw 0.5vh 4px rgba(0, 0, 0, 0.6);
+        }
+        #button-bot-shop {
           color: white;
           background: #333333;
           border-radius: 1.6em;
@@ -391,6 +406,45 @@
           font-family: Archivo Black;
           box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
           text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
+        }
+        #button-bot-nft {
+            color: white;
+            background: #333333;
+            border-radius: 1.6em;
+            border: none;
+            cursor: pointer;
+            height: 7vh;
+            width: 25vw;
+            font-size: 0.9rem;
+            font-family: Archivo Black;
+            box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
+            text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
+        }
+        #button-bot-earn {
+            color: white;
+            background: #333333;
+            border-radius: 1.6em;
+            border: none;
+            cursor: pointer;
+            height: 7vh;
+            width: 25vw;
+            font-size: 0.9rem;
+            font-family: Archivo Black;
+            box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
+            text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
+        }
+        #button-bot-ref {
+            color: white;
+            background: #333333;
+            border-radius: 1.6em;
+            border: none;
+            cursor: pointer;
+            height: 7vh;
+            width: 25vw;
+            font-size: 0.9rem;
+            font-family: Archivo Black;
+            box-shadow: 0.2vw 1vh 20px rgba(0, 0, 0, 0.7);
+            text-shadow: 0.4vw 0.5vh rgba(0, 0, 0, 0.6);
         }
         #btn {
             background: none;
@@ -437,12 +491,12 @@
     </div>
 
 
-    <div class="ton-balance">
+    <div class="ton-container">
         <div class="ton">
             <img src="static/toncoin-ton-logo.jpg">
         </div>
         <div class="balance">
-            <p><span>0.01</span></p>
+            <p id="ton-balance"></p>
         </div>
     </div>
 
@@ -452,32 +506,30 @@
     <div class="container">
         <div class="info">
             <div class="table_hash">
-                <p>TEA Hashrate:</p>
-                <p><span>0.0000</span> TEA/min</p>
+                <p>TEA Hashrate: 0 TEA/min</p>
             </div>
             <div class="table_hash">
-                <p>TCL Hashrate:</p>
-                <p><span>0.0000</span> TCL/min</p>
+                <p id="mine-tcl">TCL Hashrate: 0 TCL/min</p>
             </div>
         </div>
         <div class="balances">
             <div class="table_balance">
-                <p>TEA Balance: <span>0.0000</span></p>
+                <p>TEA Balance: 0</p>
             </div>
             <div class="table_balance">
-                <p>TCL Balance: <span>0.0000</span></p>
+                <p>TCL Balance: 0</p>
             </div>
         </div>
     </div>
     <div class="mine-button-container">
-        <button class="button-mine" onclick="location.href='/NFT.html'">Mine TEA</button>
-        <button class="button-mine" onclick="location.href='/mine_tcl'">Mine TCL</button>
+        <button id="button-mine-tea">Mine TEA</button>
+        <button id="button-mine-tcl">Mine TCL</button>
     </div>
     <div class="button-container">
-        <button class="button-bot" onclick="window.location.href='shop.html'">Shop</button>
-        <button class="button-bot" onclick="window.location.href='nfts.html'">NFTs</button>
-        <button class="button-bot" onclick="window.location.href='earn.html'">Earn</button>
-        <button class="button-bot" onclick="window.location.href='referals.html'">Referrals</button>
+        <button id="button-bot-shop">Shop</button>
+        <button id="button-bot-nft">NFTs</button>
+        <button id="button-bot-earn">Earn</button>
+        <button id="button-bot-ref">Referrals</button>
     </div>
     <script src="java/script.js"></script>
     <script src="java/tonconnect-index.js"></script>
