@@ -59,8 +59,7 @@
         font-size: 1.4rem;
         color: white;
         letter-spacing: 0.16em;
-        text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.27);;
-        margin-bottom: 0.2vh;
+        text-shadow: 0vw 0vh 8px rgba(255, 255, 255, 0.27);;
         white-space: nowrap;
         position: absolute;
         top: 14.6vh;
@@ -76,7 +75,7 @@
         margin: 1vh 0em;
       }
       .item {
-        background-color: black;
+        background-color: #0f0f0f;
         width: 66.4vw;
         height: 11.4vh;
         position: relative;
@@ -85,7 +84,7 @@
         justify-content: center;
         border-radius: 0.8em;
         box-shadow: 0.4vw 0.4vh 19px;
-        margin: 4vh 0em;
+        margin: 3vh 0em;
       }
 
       .item::before {
@@ -94,7 +93,7 @@
         z-index: -1;
         width: 68vw;
         height: 13vh;
-        margin: 4vh 0vw;
+        margin: 3vh 0vw;
         background: rgb(247, 0, 255);
         background: linear-gradient(135deg, rgb(0, 234, 255) 0%, rgb(238, 0, 255) 35%, rgb(255, 0, 221) 100%);
         border-radius: 1.2em;
@@ -106,7 +105,7 @@
         z-index: -1;
         width: 68vw;
         height: 13vh;
-        margin: 4vh 0vw;
+        margin: 3vh 0vw;
         background: rgb(238, 0, 255);
         background: linear-gradient(135deg, rgb(0, 247, 255) 0%, rgb(0, 208, 255) 35%, rgb(247, 0, 255) 100%);
         border-radius: 0.6em;
@@ -186,17 +185,45 @@
         border-radius: 4em;
         filter: blur(16px);
       }
+      .text-container {
+        position: absolute;
+        z-index: 100;
+        top: 7%;
+        left: 28vw;
+        background: rgb(39, 39, 39);
+        border-radius: 1em;
+        width: 36vw;
+        height: 10vh;
+        box-shadow: 0.4vw 0.4vh 10px rgb(0, 0, 0);
+
+      }
       .text {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 25%;
+        left: 18vw;
         transform: translate(-50%, -50%);
         color: white;
         font-family: Archivo Black;
-        font-size: 1.5rem;
+        font-size: 1rem;
         z-index: 1;
+        width: 36vw;
         white-space: nowrap;
+        text-align: center;
       }
+      .price {
+        position: absolute;
+        top: 70%;
+        left: 18vw;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+        font-family: Archivo Black;
+        font-size: 1rem;
+        z-index: 1;
+        width: 36vw;
+        white-space: nowrap;
+        text-align: center;
+      }
+
       .uiverse {
         --duration: 7s;
         --easing: linear;
@@ -521,19 +548,39 @@
   </div>
   <div class="container">
     <div class="item-container">
-      <div class="item"><p class="text">batonchuk blyat</p></div>
+      <div class="item">
+        <div class="text-container">
+          <p class="text">Magic coffee beans</p>
+          <p class="price"> 50 TCL</p>
+        </div>
+      </div>
       <button class="buy-button">Buy</button>
     </div>
     <div class="item-container">
-      <div class="item"><p class="text">batonchuk blyat</p></div>
+      <div class="item">
+        <div class="text-container">
+          <p class="text">Magic coffee beans</p>
+          <p class="price"> 95 TCL</p>
+        </div>
+      </div>
       <button class="buy-button">Buy</button>
     </div>
     <div class="item-container">
-      <div class="item"><p class="text">idi naxuy</p></div>
+      <div class="item">
+        <div class="text-container">
+          <p class="text">Magic coffee beans</p>
+          <p class="price"> 140 TCL</p>
+        </div>
+      </div>
       <button class="buy-button">Buy</button>
     </div>
     <div class="item-container">
-      <div class="item"><p class="text">lox ebaniy</p></div>
+      <div class="item">
+        <div class="text-container">
+          <p class="text">Magic coffee beans</p>
+          <p class="price"> 200 TCL</p>
+        </div>
+      </div>
       <button class="buy-button">Buy</button>
     </div>
     <div class="item-container">
@@ -557,6 +604,23 @@
     <button class="uiverse" onclick="window.location.href='index.html'">
       <div class="wrapper">
         <span>BACK</span>
+        <div class="circle circle-12"></div>
+        <div class="circle circle-11"></div>
+        <div class="circle circle-10"></div>
+        <div class="circle circle-9"></div>
+        <div class="circle circle-8"></div>
+        <div class="circle circle-7"></div>
+        <div class="circle circle-6"></div>
+        <div class="circle circle-5"></div>
+        <div class="circle circle-4"></div>
+        <div class="circle circle-3"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-1"></div>
+      </div>
+    </button>
+    <button class="uiverse">
+      <div class="wrapper">
+        <span>INFO</span>
         <div class="circle circle-12"></div>
         <div class="circle circle-11"></div>
         <div class="circle circle-10"></div>
