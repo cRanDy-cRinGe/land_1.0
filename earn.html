@@ -25,16 +25,18 @@
           overflow: hidden;
         }
         .spinner {
-          position: relative;
-          top: 5vh;
-          background-image: linear-gradient(rgb(186, 66, 255) 35%,rgb(0, 225, 255));
-          width: 240px;
-          height: 240px;
-          animation: spinning82341 1.7s linear infinite;
-          text-align: center;
-          border-radius: 10em;
-          filter: blur(1px);
-          box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+            position: relative;
+            top: 5vh;
+            background-image: linear-gradient(rgb(186, 66, 255) 35%,rgb(0, 225, 255));
+            max-width: 240px;
+            max-height: 240px;
+            min-width: 240px;
+            min-height: 240px;
+            animation: spinning82341 1.7s linear infinite;
+            text-align: center;
+            border-radius: 10em;
+            filter: blur(1px);
+            box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
         }
 
         .spinner1 {
@@ -66,7 +68,6 @@
           border-radius: 1.4em;
           display: flex;
           justify-content: space-between;
-          align-items: left;
           flex-direction: column;
           overflow-y: auto;
           margin-top: 0;
@@ -75,7 +76,7 @@
         }
         /* From Uiverse.io by Yaya12085 */
         /* From Uiverse.io by TreepDeep */
-        .button.x {
+        .button-telegram {
           width: 66vw;
           height: 8vh;
           display: flex;
@@ -91,42 +92,92 @@
           border: 1px solid rgba(24, 23, 23, 0.25);
           gap: 0.75rem;
           color: #ffffff;
-          background-color: rgb(24, 23, 23);
+          background-color: rgb(0, 129, 255);
           cursor: pointer;
           transition: all 0.6s ease;
           text-decoration: none;
           margin: 1.4em 2em;
         }
 
-        .button.x svg {
+        .button-telegram svg {
           height: 24px;
           width: 24px;
           fill: #fff;
           margin-right: 0.5rem;
         }
 
-        .button.x:hover {
+        .button-telegram:hover {
           transform: scale(1.02);
-          background-color: #333;
+          background-color: #0278ff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .button.x:focus {
+        .button-telegram:focus {
           outline: none;
           box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
         }
 
-        .button.x:active {
+        .button-telegram:active {
           transform: scale(0.98);
           opacity: 0.8;
         }
 
         @media (max-width: 480px) {
-          .button.x {
+          .button-telegram {
             max-width: 100%;
           }
         }
+     .button-twitter {
+         width: 66vw;
+         height: 8vh;
+         display: flex;
+         padding: 0.5rem 1.4rem;
+         font-size: 1rem;
+         line-height: 1.25rem;
+         font-weight: 700;
+         text-align: center;
+         text-transform: uppercase;
+         vertical-align: middle;
+         align-items: center;
+         border-radius: 0.5rem;
+         border: 1px solid rgba(24, 23, 23, 0.25);
+         gap: 0.75rem;
+         color: #ffffff;
+         background-color: rgb(32, 32, 32);
+         cursor: pointer;
+         transition: all 0.6s ease;
+         text-decoration: none;
+         margin: 1.4em 2em;
+     }
 
+     .button-twitter svg {
+         height: 24px;
+         width: 24px;
+         fill: #fff;
+         margin-right: 0.5rem;
+     }
+
+     .button-twitter:hover {
+         transform: scale(1.02);
+         background-color: #121212;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     }
+
+     .button-twitter:focus {
+         outline: none;
+         box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+     }
+
+     .button-twitter:active {
+         transform: scale(0.98);
+         opacity: 0.8;
+     }
+
+     @media (max-width: 480px) {
+         .button-telegram {
+             max-width: 100%;
+         }
+     }
         .footer {
             position: absolute;
             bottom: 0vh;
@@ -460,70 +511,33 @@
 
     <div class="container">
         <div class="task">
-            <button class="button x">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>github</title>
-                  <rect width="24" height="24" fill="none"></rect>
-                  <path
-                    d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,
-                    5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,
-                    5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,
-                    0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,
-                    4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"
-                  ></path>
-                </g>
-              </svg>
-              Continue with Github
-            </button>
-
-            <button class="button x">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>github</title>
-                  <rect width="24" height="24" fill="none"></rect>
-                  <path
-                    d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,
-                    5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,
-                    5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,
-                    0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,
-                    4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"
-                  ></path>
-                </g>
-              </svg>
+            <button class="button-telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0
+                12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0
+                1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36
+                8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184
+                 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024q-.159.037-5.061 3.345q-.72.495-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789q.04-.324.893-.663q5.247-2.286
+                  6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635"/></svg>
               Join Telegram Channel
             </button>
-            <button class="button x">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>github</title>
-                  <rect width="24" height="24" fill="none"></rect>
-                  <path
-                    d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.66-.23.66-.5V19.31C6.73,19.91,6.14,18,6.14,18A2.69,2.69,0,0,0,
-                    5,16.5c-.91-.62.07-.6.07-.6a2.1,2.1,0,0,1,1.53,1,2.15,2.15,0,0,0,2.91.83,2.16,2.16,0,0,1,.63-1.34C8,16.17,
-                    5.62,15.31,5.62,11.5a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.64s.84-.27,2.75,1a9.63,9.63,0,0,1,5,
-                    0c1.91-1.29,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.64,3.87,3.87,0,0,1,1,2.71c0,3.82-2.34,4.66-4.57,
-                    4.91a2.39,2.39,0,0,1,.69,1.85V21c0,.27.16.59.67.5A10,10,0,0,0,12,2Z"
-                  ></path>
-                </g>
+
+            <button class="button-telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256S111 504
+                248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9
+                25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25
+                5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9
+                9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6
+                83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg>
+              Join Telegram Chat
+            </button>
+            <button class="button-twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M459.4 151.7c.3 4.5
+                 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3
+                 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0
+                 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4
+                 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9
+                 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3
+                 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z"/></svg>
               </svg>
               Join Twitter
             </button>
