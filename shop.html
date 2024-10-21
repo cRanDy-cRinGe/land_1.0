@@ -26,19 +26,20 @@
         overflow: hidden;
       }
       .header {
+        position: relative;
         background: #262626;
         width: 100vw;
         color: white;
         border-radius: 0em 0em 0.6em 0.6em;
         border-bottom: 0.1em solid #f200ff;
-        height: 12vh;
+        height: 10vh;
         text-align: center;
         font-family: Archivo Black;
         font-size: 1.8rem;
-        text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+        text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.4);
         box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
-        padding-top: 0.6em;
-        padding-bottom: 0em;
+        padding-top: 0.2em;
+        padding-bottom: 0.4em;
       }
       .container {
         background: #262626;
@@ -62,11 +63,12 @@
         text-shadow: 0vw 0vh 8px rgba(255, 255, 255, 0.27);;
         white-space: nowrap;
         position: absolute;
-        top: 14.6vh;
+        top: 15.4vh;
         left: 3.8vw;
 
       }
       .item-container {
+        widthg: 100%;
         display: flex;
         justify-content: space-around;
         border: 0.0px solid white;
@@ -76,39 +78,39 @@
       }
       .item {
         background-color: #0f0f0f;
-        width: 66.4vw;
+        width: 70.4vw;
         height: 11.4vh;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 0.8em;
+        border-radius: 0.8em 0em 0em 0.8em;
         box-shadow: 0.4vw 0.4vh 19px;
-        margin: 3vh 0em;
+        margin: 3vh 0em 3vh 2vw;
       }
 
       .item::before {
         content: "";
         position: absolute;
         z-index: -1;
-        width: 68vw;
+        width: 92vw;
         height: 13vh;
-        margin: 3vh 0vw;
+        margin: 3vh 1vw 3vh 26.5vw;
         background: rgb(247, 0, 255);
         background: linear-gradient(135deg, rgb(0, 234, 255) 0%, rgb(238, 0, 255) 35%, rgb(255, 0, 221) 100%);
-        border-radius: 1.2em;
+        border-radius: 1.6em 4em 4em 1.6em;
       }
 
       .item::after {
         content: "";
         position: absolute;
         z-index: -1;
-        width: 68vw;
+        width: 92vw;
         height: 13vh;
-        margin: 3vh 0vw;
-        background: rgb(238, 0, 255);
-        background: linear-gradient(135deg, rgb(0, 247, 255) 0%, rgb(0, 208, 255) 35%, rgb(247, 0, 255) 100%);
-        border-radius: 0.6em;
+        margin: 3vh 1vw 3vh 26.5vw;
+        background: rgba(238, 0, 255, 0.43);
+        background: linear-gradient(135deg, rgba(0, 247, 255, 0.55) 0%, rgba(200, 0, 255, 0.42) 35%, rgba(247, 0, 255, 0.34) 100%);
+        border-radius: 1.6em 4em 4em 1.6em;
         filter: blur(10px);
         transition: 2s;
       }
@@ -130,28 +132,45 @@
           opacity: 1;
         }
       }
+      #img-common {
+        left: 1vw;
+        top: 0.7vh;
+        position: absolute;
+        z-index: 2;
+        width: 26vw;
+        height: 10vh;
+        border-radius: 20em;
+      }
+      #img-rare {
+        left: 8vw;
+        top: 0vh;
+        position: absolute;
+        z-index: 1;
+        width: 14vw;
+        height: 11vh;
+      }
       .buy-button {
-        width: 16vw;
-        height: 7vh;
+        width: 26.4vw;
+        height: 11.4vh;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
         padding: 0px 1em;
         background-color: #bf00ff;
-        border-radius: 4em;
+        border-radius: 0em 4em 4em 0em;
         border: none;
         color: white;
         position: relative;
         cursor: pointer;
         font-weight: 900;
         transition-duration: .2s;
-        background: linear-gradient(0deg, #000, #272727);
-        margin: 5.6vh 0em;
-        font-size: 1rem;
+        background: #0f0f0f;
+        margin: 3vh 1em 3vh 0.5vw;
+        font-size: 1.2rem;
       }
 
-      .buy-button:before, .button:after {
+      #buy-button:before, .button:after {
         content: '';
         position: absolute;
         left: -2px;
@@ -190,11 +209,11 @@
         z-index: 100;
         top: 7%;
         left: 28vw;
-        background: rgb(39, 39, 39);
+        background: rgba(39, 39, 39, 0);
         border-radius: 1em;
+        border: none;
         width: 36vw;
         height: 10vh;
-        box-shadow: 0.4vw 0.4vh 10px rgb(0, 0, 0);
 
       }
       .text {
@@ -549,6 +568,7 @@
   <div class="container">
     <div class="item-container">
       <div class="item">
+        <img id="img-common" src="static/common.JPEG">
         <div class="text-container">
           <p class="text">Magic coffee beans</p>
           <p class="price"> 50 TCL</p>
@@ -558,6 +578,7 @@
     </div>
     <div class="item-container">
       <div class="item">
+        <img id="img-rare" src="static/rare.jpg">
         <div class="text-container">
           <p class="text">Magic coffee beans</p>
           <p class="price"> 95 TCL</p>
@@ -581,22 +602,6 @@
           <p class="price"> 200 TCL</p>
         </div>
       </div>
-      <button class="buy-button">Buy</button>
-    </div>
-    <div class="item-container">
-      <div class="item"><p class="text">hahahahahaha</p></div>
-      <button class="buy-button">Buy</button>
-    </div>
-    <div class="item-container">
-      <div class="item"><p class="text">meni pizda</p></div>
-      <button class="buy-button">Buy</button>
-    </div>
-    <div class="item-container">
-      <div class="item"><p class="text">ya idu holovoy</p></div>
-      <button class="buy-button">Buy</button>
-    </div>
-    <div class="item-container">
-      <div class="item"><p class="text">psihushkaaa :[]</p></div>
       <button class="buy-button">Buy</button>
     </div>
   </div>
