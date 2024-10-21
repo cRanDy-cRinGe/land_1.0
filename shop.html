@@ -77,8 +77,9 @@
         margin: 1vh 0em;
       }
       .item {
+        text-shadow: 0.6vw 0.4vh 2px rgba(0, 0, 0, 0.8);
         background-color: #0f0f0f;
-        width: 70.4vw;
+        width: 74.4vw;
         height: 11.4vh;
         position: relative;
         display: flex;
@@ -93,9 +94,9 @@
         content: "";
         position: absolute;
         z-index: -1;
-        width: 92vw;
+        width: 93vw;
         height: 13vh;
-        margin: 3vh 1vw 3vh 26.5vw;
+        margin: 3vh 1vw 3vh 27.6vw;
         background: rgb(247, 0, 255);
         background: linear-gradient(135deg, rgb(0, 234, 255) 0%, rgb(238, 0, 255) 35%, rgb(255, 0, 221) 100%);
         border-radius: 1.6em 4em 4em 1.6em;
@@ -105,9 +106,9 @@
         content: "";
         position: absolute;
         z-index: -1;
-        width: 92vw;
+        width: 93vw;
         height: 13vh;
-        margin: 3vh 1vw 3vh 26.5vw;
+        margin: 3vh 1vw 3vh 27.6vw;
         background: rgba(238, 0, 255, 0.43);
         background: linear-gradient(135deg, rgba(0, 247, 255, 0.55) 0%, rgba(200, 0, 255, 0.42) 35%, rgba(247, 0, 255, 0.34) 100%);
         border-radius: 1.6em 4em 4em 1.6em;
@@ -137,20 +138,20 @@
         top: 0.7vh;
         position: absolute;
         z-index: 2;
-        width: 26vw;
+        width: 18vw;
         height: 10vh;
         border-radius: 20em;
       }
       #img-rare {
-        left: 8vw;
-        top: 0vh;
+        left: 4vw;
+        top: 0.6vh;
         position: absolute;
         z-index: 1;
-        width: 14vw;
-        height: 11vh;
+        width: 18vw;
+        height: 10vh;
       }
       .buy-button {
-        width: 26.4vw;
+        width: 25.4vw;
         height: 11.4vh;
         display: flex;
         align-items: center;
@@ -166,7 +167,7 @@
         font-weight: 900;
         transition-duration: .2s;
         background: #0f0f0f;
-        margin: 3vh 1em 3vh 0.5vw;
+        margin: 3vh 1vw 3vh 0.5vw;
         font-size: 1.2rem;
       }
 
@@ -208,26 +209,86 @@
         position: absolute;
         z-index: 100;
         top: 7%;
-        left: 28vw;
+        left: 26vw;
         background: rgba(39, 39, 39, 0);
         border-radius: 1em;
         border: none;
-        width: 36vw;
+        width: 40vw;
         height: 10vh;
 
       }
-      .text {
+      .text-common {
+        background: #007afa;
+        border-radius: 2em;
         position: absolute;
         top: 25%;
         left: 18vw;
         transform: translate(-50%, -50%);
         color: white;
         font-family: Archivo Black;
-        font-size: 1rem;
+        font-size: 0.9rem;
         z-index: 1;
-        width: 36vw;
+        width: 40vw;
         white-space: nowrap;
         text-align: center;
+        word-spacing: 0.05em;
+      }
+      .text-rare {
+        background: #fa7100;
+        border-radius: 2em;
+        position: absolute;
+        top: 25%;
+        left: 18vw;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Archivo Black;
+        font-size: 0.9rem;
+        z-index: 1;
+        width: 40vw;
+        white-space: nowrap;
+        text-align: center;
+        word-spacing: 0.05em;
+      }
+      .text-epic {
+        background: linear-gradient(45deg, #a200ff, #a200ff, #a200ff,
+        #a200ff, #e099fb, #a200ff, #a200ff,
+        #a200ff, #a200ff);
+        background-size: 400%;
+        animation: steam 16s linear infinite;
+        border-radius: 2em;
+        position: absolute;
+        top: 25%;
+        left: 18vw;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Archivo Black;
+        font-size: 0.9rem;
+        z-index: 1;
+        width: 40vw;
+        white-space: nowrap;
+        text-align: center;
+        word-spacing: 0.05em;
+      }
+      .text-legendary {
+        background: linear-gradient(45deg, #ff00b7, #ff00b7
+        , #ff00fb, #ff00fb, #00d0ff, #00bbff,
+        #00bbff, #00bbff, #ff00b7, #ff00b7);
+        background-size: 400%;
+        animation: steam 20s linear infinite;
+        border-radius: 2em;
+        position: absolute;
+        top: 25%;
+        left: 18vw;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Archivo Black;
+        font-size: 0.9rem;
+        z-index: 1;
+        width: 40vw;
+        white-space: nowrap;
+        text-align: center;
+        word-spacing: 0.05em;
+        border:  solid rgb(0, 0, 0);
       }
       .price {
         position: absolute;
@@ -568,9 +629,9 @@
   <div class="container">
     <div class="item-container">
       <div class="item">
-        <img id="img-common" src="static/common.JPEG">
+        <img id="img-common" src="/static/common.JPEG">
         <div class="text-container">
-          <p class="text">Magic coffee beans</p>
+          <p class="text-common">Magic coffee beans</p>
           <p class="price"> 50 TCL</p>
         </div>
       </div>
@@ -578,9 +639,9 @@
     </div>
     <div class="item-container">
       <div class="item">
-        <img id="img-rare" src="static/rare.jpg">
+        <img id="img-rare" src="/static/rare.jpg">
         <div class="text-container">
-          <p class="text">Magic coffee beans</p>
+          <p class="text-rare">Magic coffee beans</p>
           <p class="price"> 95 TCL</p>
         </div>
       </div>
@@ -589,7 +650,7 @@
     <div class="item-container">
       <div class="item">
         <div class="text-container">
-          <p class="text">Magic coffee beans</p>
+          <p class="text-epic">Magic coffee beans</p>
           <p class="price"> 140 TCL</p>
         </div>
       </div>
@@ -598,7 +659,7 @@
     <div class="item-container">
       <div class="item">
         <div class="text-container">
-          <p class="text">Magic coffee beans</p>
+          <p class="text-legendary">Magic coffee beans</p>
           <p class="price"> 200 TCL</p>
         </div>
       </div>
