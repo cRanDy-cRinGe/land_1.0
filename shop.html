@@ -95,7 +95,7 @@
         content: "";
         position: absolute;
         z-index: -1;
-        width: 95.5vw;
+        width: 96.5vw;
         height: 13vh;
         margin: 3vh 1vw 3vh 27.6vw;
         background: rgb(247, 0, 255);
@@ -238,7 +238,11 @@
         justify-content: center;
       }
       .text-rare {
-        background: #fa7100;
+        background: linear-gradient(45deg, #fa7100, #fa7100, #fa7100,
+        #ff7300, #efb483, #ff7300, #fa7100,
+        #fa7100, #fa7100);
+        background-size: 400%;
+        animation: steam 32s linear infinite;
         border-radius: 2em;
         position: absolute;
         top: 25%;
@@ -261,7 +265,7 @@
         #a200ff, #e099fb, #a200ff, #a200ff,
         #a200ff, #a200ff);
         background-size: 400%;
-        animation: steam 16s linear infinite;
+        animation: steam 18s linear infinite;
         border-radius: 2em;
         position: absolute;
         top: 25%;
@@ -271,7 +275,7 @@
         font-family: Archivo Black;
         font-size: 0.9rem;
         z-index: 1;
-        width: 40vw;
+        width: 42vw;
         white-space: nowrap;
         word-spacing: 0.05em;
         display: flex;
@@ -284,7 +288,7 @@
         , #ff00fb, #ff00fb, #00d0ff, #00bbff,
         #00bbff, #00bbff, #ff00b7, #ff00b7);
         background-size: 400%;
-        animation: steam 20s linear infinite;
+        animation: steam 16s linear infinite;
         border-radius: 2em;
         position: absolute;
         top: 25%;
@@ -314,7 +318,7 @@
           width: 42vw;
         }
         .text-legendary {
-          width: 42vw;
+          width: 44vw;
         }
       }
       .price {
@@ -644,6 +648,231 @@
         justify-content: space-around;
         align-items: center;
       }
+      .popup {
+        position: fixed;
+        top: 15.7vh;
+        left: 1vw;
+        width: 98vw;
+        height: 73.3vh;
+        border-radius: 1.67em;
+        background-color: #262626;
+        color: white;
+        text-align: left;
+        font-size: 1.2rem;
+        font-family: Archivo black;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        z-index: 100;
+        overflow-y: auto;
+
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .visible {
+        display: block;
+      }
+      .popup-text {
+        font-size: 1.2rem;
+        margin: 0.4em 2em;
+        text-shadow: 0.8vw 0.4vh 8px rgba(0, 0, 0, 0);
+        text-align: left;
+      }
+      .popup-header {
+        text-shadow: 0.9vw 0.4vh 1px rgba(0, 0, 0, 0.4);
+        font-size: 1.8rem;
+        text-align: center;
+        margin: 0.2em 0em;
+        letter-spacing: 0.06em;
+      }
+      .header-con {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width:  72vw;
+        height: 8vh;
+        position: relative;
+        left: 14vw;
+        margin-top: 2vh;
+        background: rgba(32, 32, 32, 1);
+        white-space: nowrap;
+        border-radius: 2em;
+        box-shadow: 0.4vw 0.4vh 12px rgb(0, 0, 0);
+      }
+      .popup-subheader-common {
+        position: relative;
+        width: 32vw;
+        height: 7vh;
+        left: 31vw;
+        border-radius: 1.3em;
+        border:  solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin: 0.8em;
+        box-shadow: 0.4vw 0.4vh 12px rgb(0, 0, 0);
+        text-shadow: 0.9vw 0.4vh 1px rgba(0, 0, 0, 0.4);
+      }
+      .popup-subheader-common:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 1.2em;
+        filter: blur(px);
+        background: #007afa;
+        background-size: 400%;
+        animation: steam 32s linear infinite;
+      }
+      .popup-subheader-rare {
+        position: relative;
+        width: 32vw;
+        height: 7vh;
+        left: 31vw;
+        border-radius: 1.3em;
+        border:  solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin: 0.8em;
+        box-shadow: 0.4vw 0.4vh 12px rgb(0, 0, 0);
+        text-shadow: 0.9vw 0.4vh 1px rgba(0, 0, 0, 0.4);
+      }
+      .popup-subheader-rare:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 1.2em;
+        filter: blur(px);
+        background: linear-gradient(45deg, #fa7100, #fa7100, #fa7100,
+        #f68d37, #efb483, #f68d37, #fa7100,
+        #fa7100, #fa7100);
+        background-size: 400%;
+        animation: steam 32s linear infinite;
+      }
+      .popup-subheader-epic {
+        position: relative;
+        width: 32vw;
+        height: 7vh;
+        left: 31vw;
+        border-radius: 1.3em;
+        border:  solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin: 0.8em;
+        box-shadow: 0.4vw 0.4vh 12px rgb(0, 0, 0);
+        text-shadow: 0.9vw 0.4vh 1px rgba(0, 0, 0, 0.4);
+      }
+      .popup-subheader-epic:after {
+         content: '';
+         width: 100%;
+         height: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: -1;
+         border-radius: 1.2em;
+         filter: blur(px);
+        background: linear-gradient(45deg, #a200ff, #a200ff, #a200ff,
+        #a200ff, #e099fb, #a200ff, #a200ff,
+        #a200ff, #a200ff);
+         background-size: 400%;
+         animation: steam 20s linear infinite;
+       }
+      .popup-subheader-legendary {
+        position: relative;
+        width: 32vw;
+        height: 7vh;
+        left: 31vw;
+        border-radius: 1.3em;
+        border:  solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin: 0.8em;
+        box-shadow: 0.4vw 0.4vh 12px rgb(0, 0, 0);
+        text-shadow: 0.9vw 0.4vh 1px rgba(0, 0, 0, 0.4);
+      }
+      .popup-subheader-legendary:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 1.2em;
+        filter: blur(px);
+        background: linear-gradient(45deg, #ff00b7, #ff00b7
+        , #ff00fb, #ff00fb, #00d0ff, #00bbff,
+        #00bbff, #00bbff, #ff00b7, #ff00b7);
+        background-size: 400%;
+        animation: steam 20s linear infinite;
+      }
+      @media (max-width: 430px) {
+        .popup-subheader-legendary:after {
+          filter: blur(px);
+        }
+        .popup-subheader-legendary {
+          width: 42vw;
+        }
+        .popup-subheader-epic:after {
+          filter: blur(px);
+        }
+        .popup-subheader-epic {
+          width: 42vw;
+        }
+        .popup-subheader-rare:after {
+          filter: blur(px);
+        }
+        .popup-subheader-rare {
+          width: 42vw;
+        }
+        .popup-subheader-common:after {
+          filter: blur(px);
+        }
+        .popup-subheader-common {
+          width: 42vw;
+        }
+        .header-con {
+          width: 90vw;
+          left: 5vw;
+        }
+      }
+      .item-subheader {
+        color: white;
+        font-family: "Archivo Black";
+        letter-spacing: 0.1rem;
+      }
+      @keyframes steam {
+        0% {
+          background-position: 0 0;
+        }
+
+        50% {
+          background-position: 400% 0;
+        }
+
+        100% {
+          background-position: 0 0;
+        }
+      }
     </style>
 </head>
 <body>
@@ -654,6 +883,45 @@
     <h1>Items</h1>
   </div>
   <div class="container">
+    <div class="header-con">
+      <h1 class="item-subheader">Cleaner</h1>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <img id="img-cleaner" src="">
+        <div class="text-container">
+          <p class="text-common">Coffee machine cleaner</p>
+          <p class="price"> ??? TCL</p>
+        </div>
+      </div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="header-con">
+      <h1 class="item-subheader">Cups of coffee</h1>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <img id="img-mudium" src="">
+        <div class="text-container">
+          <p class="text-common">Medium cup</p>
+          <p class="price"> 100 TCL</p>
+        </div>
+      </div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="item-container">
+      <div class="item">
+        <img id="img-large" src="">
+        <div class="text-container">
+          <p class="text-epic">Large cup</p>
+          <p class="price"> 180 TCL</p>
+        </div>
+      </div>
+      <button class="buy-button">Buy</button>
+    </div>
+    <div class="header-con">
+      <h1 class="item-subheader">Beans</h1>
+    </div>
     <div class="item-container">
       <div class="item">
         <img id="img-common" src="static/common.JPEG">
@@ -711,7 +979,7 @@
         <div class="circle circle-1"></div>
       </div>
     </button>
-    <button class="uiverse">
+    <button class="uiverse" id="toggleButton">
       <div class="wrapper">
         <span>INFO</span>
         <div class="circle circle-12"></div>
@@ -729,5 +997,42 @@
       </div>
     </button>
   </div>
+  <div id="popup" class="popup hidden">
+    <div class="popup-free">
+      <div class="header-con">
+        <h1 class="popup-header">Magic Coffee Beans</h1>
+      </div>
+      <h2 class="popup-subheader-common">Common</h2>
+      <p class="popup-text">Increase mining speed by 5%</p>
+      <p class="popup-text">Cost: 50 TCL</p>
+      <h2 class="popup-subheader-rare">Rare</h2>
+      <p class="popup-text">Increase mining speed by 10%</p>
+      <p class="popup-text">Cost: 95 TCL</p>
+      <h2 class="popup-subheader-epic">Epic</h2>
+      <p class="popup-text">Increase mining speed by 15%</p>
+      <p class="popup-text">Cost: 140 TCL</p>
+      <h2 class="popup-subheader-legendary">Legendary</h2>
+      <p class="popup-text">Increase mining speed by 25%</p>
+      <p class="popup-text">Cost: 200 TCL</p>
+      <div class="header-con">
+        <h1 class="popup-header">Machine cleaner</h1>
+      </div>
+      <h2 class="popup-subheader-common">Common</h2>
+      <p class="popup-text">You must clean your coffee machine every 24 hour</p>
+      <p class="popup-text">Cost: 300% of your income per hour</p>
+      <div class="header-con">
+        <h1 class="popup-header">Cups of coffee</h1>
+      </div>
+      <h2 class="popup-subheader-common">Medium</h2>
+      <p class="popup-text">You can mine tokens for 4 hour</p>
+      <p class="popup-text">Cost: 100 TCL</p>
+      <p class="popup-text">*Not need to rebuy</p>
+      <h2 class="popup-subheader-epic">Large</h2>
+      <p class="popup-text">You can mine tokens for 8 hour</p>
+      <p class="popup-text">Cost: 180 TCL</p>
+      <p class="popup-text">*Not need to rebuy</p>
+    </div>
+  </div>
+  <script src="java/info.js"></script>
 </body>
 </html>
