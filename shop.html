@@ -54,6 +54,7 @@
         top: 13vh;
         z-index: 1;
         overflow-y: auto;
+        overflow-x: hidden;
       }
       .item-header {
         font-family: Archivo Black;
@@ -79,7 +80,7 @@
       .item {
         text-shadow: 0.6vw 0.4vh 2px rgba(0, 0, 0, 0.8);
         background-color: #0f0f0f;
-        width: 74.4vw;
+        width: 66.4vw;
         height: 11.4vh;
         position: relative;
         display: flex;
@@ -94,7 +95,7 @@
         content: "";
         position: absolute;
         z-index: -1;
-        width: 93vw;
+        width: 94.5vw;
         height: 13vh;
         margin: 3vh 1vw 3vh 27.6vw;
         background: rgb(247, 0, 255);
@@ -209,7 +210,7 @@
         position: absolute;
         z-index: 100;
         top: 7%;
-        left: 26vw;
+        left: 27vw;
         background: rgba(39, 39, 39, 0);
         border-radius: 1em;
         border: none;
@@ -229,9 +230,12 @@
         font-size: 0.9rem;
         z-index: 1;
         width: 40vw;
+        height: 3.5vh;
         white-space: nowrap;
-        text-align: center;
         word-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .text-rare {
         background: #fa7100;
@@ -246,8 +250,10 @@
         z-index: 1;
         width: 40vw;
         white-space: nowrap;
-        text-align: center;
         word-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .text-epic {
         background: linear-gradient(45deg, #a200ff, #a200ff, #a200ff,
@@ -266,8 +272,10 @@
         z-index: 1;
         width: 40vw;
         white-space: nowrap;
-        text-align: center;
         word-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .text-legendary {
         background: linear-gradient(45deg, #ff00b7, #ff00b7
@@ -286,9 +294,25 @@
         z-index: 1;
         width: 40vw;
         white-space: nowrap;
-        text-align: center;
         word-spacing: 0.05em;
         border:  solid rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 430px) {
+        .text-common {
+          width: 42vw;
+        }
+        .text-rare {
+          width: 42vw;
+        }
+        .text-epic {
+          width: 42vw;
+        }
+        .text-legendary {
+          width: 42vw;
+        }
       }
       .price {
         position: absolute;
@@ -629,7 +653,7 @@
   <div class="container">
     <div class="item-container">
       <div class="item">
-        <img id="img-common" src="/static/common.JPEG">
+        <img id="img-common" src="static/common.JPEG">
         <div class="text-container">
           <p class="text-common">Magic coffee beans</p>
           <p class="price"> 50 TCL</p>
@@ -639,7 +663,7 @@
     </div>
     <div class="item-container">
       <div class="item">
-        <img id="img-rare" src="/static/rare.jpg">
+        <img id="img-rare" src="static/rare.jpg">
         <div class="text-container">
           <p class="text-rare">Magic coffee beans</p>
           <p class="price"> 95 TCL</p>
