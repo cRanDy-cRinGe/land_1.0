@@ -37,21 +37,22 @@
           text-align: center;
           font-family: Archivo Black;
           font-size: 1.8rem;
-          text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
+          text-shadow: 0vw 0vh 12px rgba(255, 255, 255, 0.5);
           box-shadow: 0vw 0.8vh 18px rgba(231, 10, 255, 0.8);
           padding-top: 0.6em;
         }
         .container {
+          border: 2px solid #202020;
           background: #262626;
           width: 85vw;
           height: 62vh;
-          border: 0.08em solid white;
           border-radius: 0.8em;
           color: white;
           text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.4);
           font-family: Archivo Black;
-          margin: 2em 3em;
+          margin: 1.2em 3em 2em 3em;
           padding: 1em 1em 0em 1em;
+          box-shadow: 1vw 0.8vh 20px rgba(0, 0, 0, 0.85);
         }
         .container-header {
           text-align: center;
@@ -63,50 +64,65 @@
           justify-content: left;
           width: 80vw;
           height: 7vh;
-          margin: 1em;
+          margin: 1em 1em 1.3em 1em;
           align-items: center;
         }
-        .usdt img {
+        .usdt {
           position: absolute;
-          float: left;
-          max-height: 7.86vh;
-          max-width: 7.86vw;
-          top: 31vh;
-
+          max-height: 7vh;
+          max-width: 7vw;
+          min-height: 7vh;
+          min-width: 7vh;
+          top: 0;
+          left: 0;
+          z-index: 1;
         }
-        .ton img {
+        .ton {
           position: absolute;
-          max-height: 7.86vh;
-          max-width: 7.86vw;
-          top: 40.3vh;
+          max-height: 7vh;
+          max-width: 7vw;
+          min-height: 7vh;
+          min-width: 7vh;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+        .tcl {
+          position: absolute;
+          max-height: 7vh;
+          max-width: 7vw;
+          min-height: 7vh;
+          min-width: 7vh;
+          top: 0;
+          left: 0;
+          z-index: 1;
         }
         .line {
-          padding: 0.4em;
+          border: 2px solid rgba(172, 131, 175, 0.63);
+          position: relative;
+          padding: 0.4em 0.4em 0.4em 3em;
           font-size: 1.4rem;
           background: #1f1f1f;
           border-radius: 2em;
-          width: 35vw;
-          background: #1f1f1f;
+          width: 36vw;
           display: flex;
           justify-content: left;
           align-items: center;
-          padding-left: 3em;
+          box-shadow: 1vw 0.8vh 20px rgba(0, 0, 0, 0.48);
         }
         .button-container {
           position: absolute;
           width: 100vw;
           height: 12vh;
           background: #262626 ;
-          border-radius: 0.8em;
+          border: 0.1em solid rgba(255, 255, 255, 0.16);
+          border-radius: 2em;
           display: flex;
           justify-content: center;
           align-items: center;
           gap: 8vw;
-          border-radius: 0.8em 0.8em 0.8em 0.8em;
-          border-top: 0em solid #f200ff;
           text-shadow: 0vw 0vh 16px rgba(255, 255, 255, 0.5);
           bottom: 1vh;
-
         }
         .button {
           background: #1f1f1f;
@@ -149,15 +165,7 @@
           border-radius: 1.8em;
           margin: 0.8em 0.1em 0.6em 0.1em;
         }
-          #btn {
-            margin: 1.2em 0em 0.4em 0em;
-            height: 8vh;
-            width: 30vw;
-            border-radius: 2em;
-            gap: 0.6em;
-            font-size: 0.9rem;
           }
-        }
         .button-container-wallet {
           display: flex;
           justify-content: center;
@@ -167,24 +175,7 @@
           background: rgba(255, 255, 255, 0.1);
           border-radius: 2em;
           box-shadow: 1vw 1vh 6px rgba(0, 0, 0, 0.4);
-        }
-        .button-home {
-          background: #1f1f1f;
-          color: white;
-          cursor: pointer;
-          width: 28vw;
-          height: 6vh;
-          border: 0em solid #ffffff;
-          border-radius: 2em;
-          margin: 0em;
-          font-family: Archivo Black;
-          font-size: 1.2rem;
-          text-shadow: 0vw 0vh 14px rgba(255, 255, 255, 0.5);
-          box-shadow: 0vw 0vh 6px rgba(255, 255, 255, 0.4);
-        }
-        #btn {
-          background: none;
-          border: none;
+          margin-top: 4vh;
         }
 
         .uiverse {
@@ -510,27 +501,21 @@
       </div>
       <div class="tokens">
         <div class="token-line">
-          <div class="usdt">
-            <img src="/static/usdt.png">
-          </div>
           <div class="line">
-            <p><span>0.0</span> USDT</p>
+            <p>0.0 USDT</p>
+            <img class="usdt" src="static/usdt.png">
           </div>
         </div>
         <div class="token-line">
-          <div class="ton">
-            <img src="/static/toncoin-ton-logo.jpg">
-          </div>
           <div class="line">
-            <p><span>0.0</span> TON</p>
+            <p>0.0 TON</p>
+            <img class="ton" src="static/toncoin-ton-logo.jpg">
           </div>
         </div>
         <div class="token-line">
-          <div class="tcl">
-            <img src="">
-          </div>
           <div class="line">
-            <p><span>0.0</span> TCL</p>
+            <p>0.0 TCL</p>
+            <img class="tcl" src="static/TCL.png">
           </div>
         </div>
         <div class="token-line">
@@ -544,8 +529,7 @@
       </div>
       <div class="button-container-wallet">
         <button id="send">Deposit</button>
-        <button id="btn"></button>
-        <button class="button" onclick="location.href='/mine_tcl'">Withdraw</button>
+        <button class="button">Withdraw</button>
       </div>
     </div>
     <div class="button-container">
