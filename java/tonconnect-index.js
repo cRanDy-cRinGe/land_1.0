@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             counter = new Counter(tonweb.provider);
             counterAddress = await counter.getAddress();
-            // counterValue = await counter.getCounter();
-
             console.log(counterAddress.toString(true, true, true));
         })
         .catch((error) => console.error(error));
@@ -25,94 +23,168 @@ tonConnectUI.onStatusChange(async (wallet) => {
         const walletAddress = wallet.account.address;
         localStorage.setItem('walletAddress', walletAddress);
 
-        // TON BALANCE
+        // Отримуємо баланс TON з TON API
         await updateTonBalance(walletAddress);
 
+        // Перевірка наявності NFT
         const hasNFT = await checkNFT(walletAddress);
         if (hasNFT) {
-            enableMining();
+            enableMining(walletAddress); // Передаємо адресу гаманця у функцію майнінгу
         } else {
             disableMining();
         }
+
+        // Оновлюємо баланс TCL
+        await getBalance(walletAddress); // Оновлюємо баланс після підключення
     } else {
         console.error('Wallet not connected');
     }
 });
-async function updateTonBalance(walletAddress) {
-    const apiUrl = `https://toncenter.com/api/v2/getAddressBalance?address=${walletAddress}`; // URL до API для отримання балансу
 
+async function checkUserExists(walletAddress) {
+    try {
+        const response = await fetch('http://localhost:3000/check-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ walletAddress })
+        });
+
+        const data = await response.json();
+        return data.exists;
+    } catch (error) {
+        console.error('Error checking user existence:', error);
+        return false;
+    }
+}
+
+async function checkMiningSession(walletAddress) {
+    try {
+        const response = await fetch('http://localhost:3000/get-mining-data', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ walletAddress })
+        });
+        const data = await response.json();
+        if (data.active) {
+            // Продовжуємо майнінг
+            startMiningFromProgress(data.elapsedTime);
+        }
+    } catch (error) {
+        console.error('Error fetching mining session:', error);
+    }
+}
+
+
+// Отримуємо баланс TCL з бази даних
+async function updateBalance(walletAddress, minedAmount) {
+    try {
+        const response = await fetch('http://localhost:3000/update-balance', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ walletAddress, minedAmount })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            console.log(`Balance updated successfully for ${walletAddress}. Mined Amount: ${minedAmount}`);
+        } else {
+            console.log('Failed to update balance');
+        }
+    } catch (error) {
+        console.error('Error updating balance:', error);
+    }
+}
+async function getBalance(walletAddress) {
+    try {
+        const response = await fetch('http://localhost:3000/get-balance', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ walletAddress })
+        });
+
+        const data = await response.json();
+        console.log('Balance response:', data); // Лог для перевірки
+
+        if (response.ok) {
+            // Перетворюємо balance в число
+            const balance = parseFloat(data.balance);
+            document.getElementById('tcl-balance').innerText = `Balance: ${balance.toFixed(4)} TCL`;
+        } else {
+            console.error('Error fetching balance:', data.error);
+        }
+    } catch (error) {
+        console.error('Error fetching balance:', error);
+    }
+}
+
+
+
+// Отримуємо баланс TON через API
+async function updateTonBalance(walletAddress) {
+    const apiUrl = `https://toncenter.com/api/v2/getAddressBalance?address=${walletAddress}`;
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-
-        // Баланс зберігається в data.result в наносекундах
         const balanceInNano = data.result;
-        const balanceInTon = balanceInNano / Math.pow(10, 9); // Конвертуємо в TON
+        const balanceInTon = balanceInNano / Math.pow(10, 9);
 
-        // Виводимо баланс в елемент з ID ton-balance
-        document.getElementById('ton-balance').innerText = `${balanceInTon.toFixed(4)}`;
+        document.getElementById('ton-balance').innerText = `${balanceInTon.toFixed(3)}`;
     } catch (error) {
         console.error('Error fetching balance:', error);
         document.getElementById('ton-balance').innerText = 'Error fetching balance';
     }
 }
+
 // Функція для перевірки NFT
 async function checkNFT(walletAddress) {
-    const collectionAddress = '0:9C2BAB818D0BC02E7C78B61E4C7EA7224130CD52D313E2F1957538626C0308A7'; // Правильна адреса колекції
+    const collectionAddress = '0:9C2BAB818D0BC02E7C78B61E4C7EA7224130CD52D313E2F1957538626C0308A7';
     const apiUrl = `https://toncenter.com/api/v3/nft/items?owner_address=${walletAddress}&collection_address=${collectionAddress}&limit=10&offset=0`;
 
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
         const data = await response.json();
-        console.log(data); // Виводимо результат для перевірки
-
-        // Перевіряємо, чи є NFT в результаті
-        if (data.nft_items && data.nft_items.length > 0) {
-            console.log('Wallet has a nft');
-            return true; // NFT знайдено
-        } else {
-            console.log('No NFT found in the wallet.');
-            return false; // NFT не знайдено
-        }
+        return data.nft_items && data.nft_items.length > 0;
     } catch (error) {
         console.error('Error fetching NFT data:', error);
-        return false; // Повертає false у випадку помилки
+        return false;
     }
 }
 
-function enableMining() {
+async function enableMining(walletAddress) {
     let currentValue = 0;
-    let step = 0.0000002222; // Крок зміни значення за мілісекунду
+    const step = 0.0001; // Значення для тестування
     let intervalId;
-    let elapsedTime = 0; // Час, що минув в мілісекундах
-    const totalDuration = 3600000; // Одна година в мілісекундах
+    let elapsedTime = 0;
+    const totalDuration = 5000; // Для тестування 5 секунд
 
     document.getElementById('button-mine-tcl').addEventListener('click', () => {
         if (!intervalId) {
             intervalId = setInterval(() => {
-                elapsedTime += 1; // Збільшуємо час на 1 мілісекунду
-
-                // Додаємо крок до поточного значення
+                elapsedTime += 100; // Оновлюємо кожні 100 мс для тестування
                 currentValue += step;
 
-                // Оновлюємо текст на сторінці
-                document.getElementById('mine-tcl').innerText = `TEA Hashrate: ${currentValue.toFixed(5)} TCL/min`;
+                document.getElementById('mine-tcl').innerText = `Mined: ${currentValue.toFixed(5)} TCL`;
 
-                // Зупиняємо лічильник після однієї години
                 if (elapsedTime >= totalDuration) {
                     clearInterval(intervalId);
                     intervalId = null;
+
+                    // Оновлюємо баланс після завершення майнінгу
+                    updateBalance(walletAddress, currentValue).then(() => {
+                        // Оновлюємо баланс на сторінці
+                        getBalance(walletAddress); // Переконайтеся, що getBalance визначено до цього рядка
+                    });
+                    currentValue = 0;
                 }
-            }, 1); // Оновлюємо кожну мілісекунду
+            }, 100); // Інтервал 100 мс
         }
     });
 }
+
+
 
 function disableMining() {
     document.getElementById('button-mine-tcl').addEventListener('click', () => {
@@ -120,7 +192,7 @@ function disableMining() {
     });
 }
 
-// Перенаправлення на сторінку гаманця при натисканні кнопки
+// Перенаправлення на різні сторінки
 document.getElementById('button').addEventListener('click', () => {
     window.location.href = 'wallet.html';
 });
