@@ -230,7 +230,7 @@
                 transform: rotate(360deg);
             }
         }
-
+я
 
         .header {
           color: #fc2695;
@@ -327,29 +327,30 @@
           letter-spacing: 0.06em;
           flex: 1;
           padding: 0.8em;
-          font-size: 0.8rem;
+          font-size: 1rem;
           box-shadow: 0vw 1vh 26px rgba(0, 0, 0, 0.6);
-          text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
+          text-shadow: 0.2vw 0.4vh 6px rgba(0, 0, 0, 1);
 
         }
         .table_balance {
-          background: rgba(255, 255, 255, 0.2);
-          border-bottom: 0px solid white;
-          border-left: 0px solid white;
-          border-right: 0px solid white;
-          border-top: 0.1em solid #49005c;
-          border-radius: 0px 0px 1.6em 1.6em;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          opacity: 1;
-          word-spacing: 0.1em;
-          flex: 1;
-          padding: 0.8em;
-          font-size: 0.8rem;
-          box-shadow: 0px 1.5vh 20px rgba(0, 0, 0, 0.5);
-          text-shadow: 0.2vw 0.4vh 5px rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 0px solid white;
+            border-left: 0px solid white;
+            border-right: 0px solid white;
+            border-top: 0.1em solid #49005c;
+            border-radius: 0px 0px 1.6em 1.6em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            word-spacing: 0.1em;
+            flex: 1;
+            padding: 0.8em;
+            font-size: 0.9rem;
+            box-shadow: 0vw 1.5vh 20px rgba(0, 0, 0, 0.5);
+            text-shadow: 0.2vw 0.4vh 6px rgba(0, 0, 0, 1);
+            white-space: nowrap;
         }
         .mine-button-container {
           display: flex;
@@ -496,7 +497,7 @@
             <img src="static/toncoin-ton-logo.jpg">
         </div>
         <div class="balance">
-            <p id="ton-balance"></p>
+            <p id="ton-balance">0.0</p>
         </div>
     </div>
 
@@ -506,18 +507,18 @@
     <div class="container">
         <div class="info">
             <div class="table_hash">
-                <p>TEA Hashrate: 0 TEA/min</p>
+                <p>Mined: 0 TEA</p>
             </div>
             <div class="table_hash">
-                <p id="mine-tcl">TCL Hashrate: 0 TCL/min</p>
+                <p id="mine-tcl">Mined: 0 TCL</p>
             </div>
         </div>
         <div class="balances">
             <div class="table_balance">
-                <p>TEA Balance: 0</p>
+                <p>Balance: 0 TEA</p>
             </div>
             <div class="table_balance">
-                <p>TCL Balance: 0</p>
+                <span id="tcl-balance" >Balance: 0 TCL</span>
             </div>
         </div>
     </div>
@@ -534,5 +535,7 @@
     <script src="java/script.js"></script>
     <script src="java/tonconnect-index.js"></script>
     <script src="java/Counter.js"></script>
+    <script src="java/serverscript.js"></script>
+
 </body>
 </html>
