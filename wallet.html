@@ -69,76 +69,47 @@
         }
         .usdt {
           position: absolute;
-          max-height: 7.5vh;
-          max-width: 7.5vw;
-          min-height: 7.5vh;
-          min-width: 7.5vh;
-          height: 7.5vh;
-          width: 7.5vw;
+          max-height: 7vh;
+          min-height: 7vh;
+          height: 7vh;
+          width: auto;
+          aspect-ratio: 1/1;
           top: 0;
           left: 0;
           z-index: 1;
         }
         .ton {
           position: absolute;
-          max-height: 7.5vh;
-          max-width: 7.5vw;
-          min-height: 7.5vh;
-          min-width: 7.5vh;
-          height: 7.5vh;
-          width: 7.5vw;
+          max-height: 7vh;
+          min-height: 7vh;
+          height: 7vh;
+          width: auto;
+          aspect-ratio: 1/1;
           top: 0;
           left: 0;
           z-index: 1;
         }
         .tcl {
           position: absolute;
-          max-height: 7.5vh;
-          max-width: 7.5vw;
-          min-height: 7.5vh;
-          min-width: 7.5vh;
-          height: 7.5vh;
-          width: 7.5vw;
+          max-height: 7vh;
+          min-height: 7vh;
+          height: 7vh;
+          width: auto;
+          aspect-ratio: 1/1;
           top: 0;
           left: 0;
           z-index: 1;
         }
-        @media (max-width: 430px) {
-          .tcl {
-            max-height: 6vh;
-            max-width: 6vw;
-            min-height: 6vh;
-            min-width: 6vw;
-            height: 6vh;
-            width: 6vw;
-          }
-          .ton {
-            max-height: 6vh;
-            max-width: 6vw;
-            min-height: 6vh;
-            min-width: 6vw;
-            height: 6vh;
-            width: 6vw;
-          }
-          .usdt {
-            max-height: 6vh;
-            max-width: 6vw;
-            min-height: 6vh;
-            min-width: 6vw;
-            height: 6vh;
-            width: 6vw;
-          }
-        }
         .line {
           border: 2px solid rgba(172, 131, 175, 0.63);
           position: relative;
-          padding: 0.4em 0.4em 0.4em 3em;
+          padding: 0.4em 0.4em 0.4em 2em;
           font-size: 1.4rem;
           background: #1f1f1f;
           border-radius: 2em;
           width: 36vw;
           display: flex;
-          justify-content: left;
+          justify-content: center;
           align-items: center;
           box-shadow: 1vw 0.8vh 20px rgba(0, 0, 0, 0.48);
         }
@@ -209,7 +180,7 @@
           border-radius: 2em;
           box-shadow: 1vw 1vh 6px rgba(0, 0, 0, 0.4);
           margin-top: 4vh;
-          gap: 1em;
+          gap: 2em;
         }
 
         .uiverse {
@@ -536,19 +507,19 @@
       <div class="tokens">
         <div class="token-line">
           <div class="line">
-            <p>0.0 USDT</p>
+            <p class="balance">0.0 USDT</p>
             <img class="usdt" src="static/usdt.png">
           </div>
         </div>
         <div class="token-line">
           <div class="line">
-            <p>0.0 TON</p>
+            <p class="balance">0.0 TON</p>
             <img class="ton" src="static/toncoin-ton-logo.jpg">
           </div>
         </div>
         <div class="token-line">
           <div class="line">
-            <p>0.0 TCL</p>
+            <p class="balance">0.0 TCL</p>
             <img class="tcl" src="static/TCL.png">
           </div>
         </div>
@@ -557,7 +528,7 @@
             <img src="">
           </div>
           <div class="line">
-            <p><span>0.0</span> TEA</p>
+            <p class="balance">0.0 TEA</p>
           </div>
         </div>
       </div>
